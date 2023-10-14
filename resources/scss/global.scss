@@ -1,0 +1,35 @@
+$primary: #0B409C;
+$secondary: #10316B; 
+$accent: #FFE867; 
+$light: #ffffff;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+   background-color: $light;
+   //font-family: 'Martian Mono', monospace;
+   font-family: 'Rubik', sans-serif;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 20px;
+    background-color: $secondary;
+  
+    h3 {
+      font-size: 1.4vw;
+      font-weight: 700;
+      color: $light;
+    }
+  }
