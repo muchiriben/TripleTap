@@ -9,8 +9,8 @@
                 <li>Team Building and Field Program</li>
             </ul>
             <div id="cta">
-                <a href="">Get Started</a>
-                <a href="">Our Gallery</a>
+                <a class="button" href="">Get Started</a>
+                <a class="button" href="">Our Gallery</a>
             </div>
             <div class="scrolldown" style="--color: #ffffff">
                 <div class="chevrons">
