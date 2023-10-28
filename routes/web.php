@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,7 @@ Route::middleware('auth')->group(function () {
 Route::resource('course', CourseController::class)->middleware('auth');
 Route::resource('event', EventController::class)->middleware('auth');
 Route::resource('product', ProductController::class)->middleware('auth');
+Route::resource('message', MessageController::class);
 
 //guest
 Route::resource('checkout', CheckoutController::class);
