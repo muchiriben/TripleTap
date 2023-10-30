@@ -2,14 +2,8 @@
 @import 'scrolldown';
 @import 'hexSocket';
 
-
-header {
-    width: 100%;
-    height: 10vh;
-}
-
 #hero {
-    max-width: 100vw;
+    width: 100%;
     height: 75vh;
     display: flex;
     align-items: center;
@@ -485,6 +479,13 @@ box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
 
     }
 }
+}
+
+//products page
+.products {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
 }
 
 

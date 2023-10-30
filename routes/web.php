@@ -43,6 +43,7 @@ Route::resource('message', MessageController::class);
 //guest
 Route::resource('checkout', CheckoutController::class);
 Route::get('/shop', [ShopController::class, 'shop'])->name('shop');
+Route::post('/search', [ShopController::class, 'search'])->name('search');
 Route::get('/cart', [CartController::class, 'cart'])->name('cart');
 Route::post('/addToCart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::patch('/updateCart/{id}', [CartController::class, 'updateCart'])->name('cart.update');

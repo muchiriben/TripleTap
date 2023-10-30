@@ -1,18 +1,22 @@
-<x-guest-layout>
+<x-guests-layout>
 
     <section name="title">
-        <div class="p-8 flex justify-center items-center">
+        <div class="p-2 flex justify-around items-center h-auto w-full bg-secondary-color">
+          <x-link-button :href=" route('shop')" class="mx-8 my-2 w-fit bg-light-color text-secondary-color font-semibold">
+            <img class="h-6 w-6 mx-2" src="{{ asset('images/back.svg') }}" alt="">
+            {{ __('Back') }}
+          </x-link-button>
             <h2 class="font-bold text-xl text-accent-color leading-tight">
                 {{ __('Shopping Cart') }}
             </h2>
+            <x-link-button :href=" route('checkout.index')" class="mx-8 my-2 w-fit bg-light-color text-secondary-color font-semibold">
+              {{ __('Checkout') }}
+              <img class="h-6 w-6 mx-2" src="{{ asset('images/checkout.svg') }}" alt="">
+          </x-link-button>
         </div>
     </section>
     
-    <div class="flex flex-col bg-neutral-color py-4 mx-8">
-  
-      <x-secondary-button :href="route('checkout.index')">
-        {{ __('Checkout') }}
-      </x-secondary-button>
+    <div class="flex flex-col bg-neutral-color py-4 mx-8 w-auto h-full">
   
       <div class="flex justify-center items-center bg-white shadow-md p-4 rounded-lg my-4">
        
@@ -97,8 +101,8 @@
                 </span>
                 <form action="{{ route('cart.remove',  $item->rowId) }}" method="POST">
                   @csrf
-                  @method("DELETE")
-                  <x-primary-button id="delete" name="remove" class="bg-white shadow-md rounded-md">
+                
+                  <x-primary-button id="delete" name="remove" class="bg-red-700 shadow-md rounded-md">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                     </svg>
@@ -116,16 +120,16 @@
               <th scope="col" class="relative px-6 py-3">
                   <span class="sr-only">Id</span>
               </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-accent-color uppercase tracking-wider">
+              <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-secondary-color uppercase tracking-wider">
                 Product Name
               </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-accent-color uppercase tracking-wider">
+              <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-secondary-color uppercase tracking-wider">
                   Product Price
               </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-accent-color uppercase tracking-wider">
+              <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-secondary-color uppercase tracking-wider">
                   Quantity
               </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-accent-color uppercase tracking-wider">
+              <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-secondary-color uppercase tracking-wider">
                   Total 
               </th> 
               <th scope="col" class="relative px-6 py-3">
@@ -174,9 +178,8 @@
               <td class="px-6 py-4 whitespace-nowrap">
                   <form action="{{ route('cart.remove',  $item->rowId) }}" method="POST">
                       @csrf
-                      @method("DELETE")
                       
-                      <x-primary-button id="delete" name="remove" class="bg-white shadow-md rounded-md">
+                      <x-primary-button id="delete" name="remove" class="bg-red-700 shadow-md rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
@@ -191,7 +194,7 @@
               <td></td>
               <td></td>
               <td></td>
-              <td class="pt-4"><span class="text-left font-semibold text-xl text-accent-color">Total: {{ Cart::instance('default')->subtotal(0) }} /=</span></td>
+              <td class="pt-4 text-xl font-bold text-accent-color">Total:<span class="text-left font-semibold text-xl text-secondary-color"> {{ Cart::instance('default')->subtotal(0) }} /=</span></td>
               <td></td>
             </tr>
             <!-- More items... -->
@@ -199,9 +202,10 @@
         </table>
   
       </div>
-      <x-secondary-button :href="route('checkout.index')" class="flex self-end">
-        {{ __('Checkout') }}
-      </x-secondary-button>
+      <x-link-button :href=" route('checkout.index')" class="flex self-end mx-8 my-2 w-fit bg-light-color text-secondary-color font-semibold">
+              {{ __('Checkout') }}
+              <img class="h-6 w-6 mx-2" src="{{ asset('images/checkout.svg') }}" alt="">
+          </x-link-button>
     </div>
         
     <script src="{{ asset('js/app.js') }}"></script>

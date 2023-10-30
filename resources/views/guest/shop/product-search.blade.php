@@ -31,6 +31,8 @@
     <!-- products section -->
     <section class="products">
 
+        @if ($products != null)
+
         <div class="grid grid-cols-1 gap-6 my-4 mx-8  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             @foreach($products as $product)
             <a href="">
@@ -61,6 +63,10 @@
             </a>  
               @endforeach
         </div>
+            
+        @else
+            <h1 class="text-lg text-secondary-color font-bold">Sorry no product found!!</h1>
+        @endif
 
         <x-link-button :href=" route('cart')" class="mx-8 my-2 w-fit bg-secondary-color text-light-color font-semibold">
             {{ __('View Cart') }}

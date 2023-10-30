@@ -46,13 +46,13 @@ class CartController extends Controller
     {
         Cart::remove($id);
 
-        return redirect()->route('cart.index');
+        return redirect()->route('cart');
     }
 
     public function clearAllCart()
     {
         Cart::destroy();
 
-        return redirect()->route('cart.index');
+        return redirect()->route('cart');
     }
 }
