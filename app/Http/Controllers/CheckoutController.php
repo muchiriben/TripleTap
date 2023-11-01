@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Order;
+use App\Models\OrderProduct;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CheckoutController extends Controller
 {
@@ -11,7 +15,8 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('guest.shop.checkout')->with('products', $products);
     }
 
     /**

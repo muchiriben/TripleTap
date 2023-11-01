@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('guest.index');
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -48,5 +48,10 @@ Route::get('/cart', [CartController::class, 'cart'])->name('cart');
 Route::post('/addToCart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::patch('/updateCart/{id}', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('/removeFromcart/{id}', [CartController::class, 'removeCart'])->name('cart.remove');
+
+//order confirmation
+Route::get('/order-confirmation', function () {
+    return view('guest.shop.confirmation');
+})->name('confirmation');
 
 require __DIR__ . '/auth.php';
