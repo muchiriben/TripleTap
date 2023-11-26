@@ -22,7 +22,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.products.create');
     }
 
     /**
@@ -30,7 +30,32 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'unit_price' => ['required', 'integer', 'numeric'],
+            'description' => ['required', 'string'],
+            'product_image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:3048'],
+        ]);
+
+        $product = Product::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'description' => $request->description,
+        ]);
+
+        //handle if uploaded
+        if ($request->hasFile('product_image')) {
+            // Upload an Image File to Cloudinary 
+            $uploadedFileUrl = Cloudinary::upload($request->file('product_image')->getRealPath(), ['folder' => 'product_image'])->getSecurePath();
+
+            //update
+            $product->update([
+                'product_image' => $uploadedFileUrl,
+            ]);
+        }
+
+
+        return redirect()->route('products.index')->with('success', 'New product added');
     }
 
     /**
@@ -46,7 +71,11 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+
+        return view('admin.products.edit')
+            ->with([
+                'product' => $product,
+            ]);
     }
 
     /**
@@ -54,7 +83,22 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        //handle if uploaded
+        if ($request->hasFile('product_image')) {
+
+            // Upload an Image File to Cloudinary 
+            $uploadedFileUrl = Cloudinary::upload($request->file('product_image')->getRealPath(), ['folder' => 'product_image'])->getSecurePath();
+
+            //update
+            $product->product_image = $uploadedFileUrl;
+        }
+
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->description = $request->description;
+        $product->save();
+
+        return redirect()->route('products.index');
     }
 
     /**
@@ -62,6 +106,12 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        if ($product->imageID != NULL) {
+            //delete previous
+            Cloudinary::destroy($product->imageID);
+        }
+
+        $product->delete();
+        return redirect()->route('admin.products.index');
     }
 }

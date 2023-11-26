@@ -32,7 +32,44 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (Cart::count() != 0) {
+            $request->validate([
+                'name' => ['required', 'string'],
+                'phone' => ['required', 'string'],
+                'location' => ['required', 'string'],
+                'mpesa_code' => ['required', 'string'],
+                'notes' => ['nullable', 'string'],
+            ]);
+
+            $order = Order::create([
+                'name' => $request->name,
+                'location' => $request->location,
+                'phone' => $request->phone,
+                'mpesa_code' => $request->mpesa_code,
+                'notes' => $request->notes,
+                'total' => Cart::subTotal(0, '', ''),
+                'delivery_status' => 'Not Delivered',
+            ]);
+
+            // Insert into order_product table
+            foreach (Cart::content() as $item) {
+                OrderProduct::create([
+                    'order_id' => $order->id,
+                    'product_name' => $item->model->name,
+                    'product_id' => $item->model->id,
+                    'quantity' => $item->qty,
+                    'unit_price' => $item->model->price,
+                    'total_price' => $item->model->price * $item->qty,
+                ]);
+            }
+
+            //destroy cart
+            Cart::instance('default')->destroy();
+
+            return redirect()->route('confirmation', ['id' => $order->id]);
+        } else {
+            return redirect()->route('shop')->with('error', 'You do not have any products in cart');
+        }
     }
 
     /**

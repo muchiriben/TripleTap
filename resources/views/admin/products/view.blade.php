@@ -45,7 +45,7 @@
                             <td class="py-1 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{{ $product->price }}</td>
                             <td class="py-1 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $product->created_at }}</td>
                             <td class="py-1 px-6 text-sm font-medium text-right whitespace-nowrap">
-                              <x-secondary-button class="gradient" :href=" route('product.update', $product->id)">
+                              <x-secondary-button class="gradient" :href=" route('products.update', $product->id)">
                                 {{ __('Edit') }}
                             </x-secondary-button>
                             </td>
