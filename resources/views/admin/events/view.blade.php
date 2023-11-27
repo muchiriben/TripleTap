@@ -45,7 +45,7 @@
                             <td class="py-1 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{{ $event->price }}</td>
                             <td class="py-1 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $event->created_at->toDateString() }}</td>
                             <td class="py-1 px-6 text-sm font-medium text-right whitespace-nowrap">
-                              <x-secondary-button class="gradient" :href=" route('event.update', $event->id)">
+                              <x-secondary-button class="gradient" :href=" route('admin.events.update', $event->id)">
                                 {{ __('Edit') }}
                             </x-secondary-button>
                             </td>

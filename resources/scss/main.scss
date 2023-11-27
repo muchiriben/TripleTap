@@ -489,6 +489,18 @@ box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
 }
 
 
+/* responsive settings section */
+@media screen and (max-width: 800px) {
 
+    #hero {
+        #content{
+            #main {
+                ul {
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}
 
 

@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('event_registrations', function (Blueprint $table) {
             $table->id();
+            $table->integer('event_id');
+            $table->string('name');
+            $table->string('phone');
+            $table->string('mpesa_code');
+            $table->string('payment_status');
             $table->timestamps();
         });
     }

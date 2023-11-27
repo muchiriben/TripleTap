@@ -9,7 +9,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\CourseandEventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,9 +38,16 @@ Route::middleware('auth')->group(function () {
     Route::resource('orders', OrderController::class);
 });
 
+//admin routes
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.',
+    'middleware' => ['auth']
+], function () {
+    Route::resource('courses', CourseController::class);
+    Route::resource('events', EventController::class);
+});
 
-Route::resource('courses', CourseController::class)->middleware('auth');
-Route::resource('events', EventController::class)->middleware('auth');
 Route::resource('products', ProductController::class)->middleware('auth');
 Route::resource('message', MessageController::class);
 
@@ -48,9 +55,13 @@ Route::resource('message', MessageController::class);
 Route::resource('checkout', CheckoutController::class);
 Route::get('/shop', [ShopController::class, 'shop'])->name('shop');
 Route::post('/search', [ShopController::class, 'search'])->name('search');
+Route::get('/courses', [CourseandEventController::class, 'courses'])->name('courses');
+Route::get('/courses/register/{id}', [CourseandEventController::class, 'courses_registration'])->name('courses.register');
+Route::post('/courses/store', [CourseandEventController::class, 'courses_store'])->name('courses.store');
+Route::get('/events', [CourseandEventController::class, 'events'])->name('events');
+Route::get('/events/register/{id}', [CourseandEventController::class, 'events_registration'])->name('events.register');
+Route::post('/events/store', [CourseandEventController::class, 'events_store'])->name('events.store');
 
-//registration courses/events
-Route::get('/courses', [RegistrationController::class, 'courses'])->name('courses');
 
 //cart
 Route::get('/cart', [CartController::class, 'cart'])->name('cart');

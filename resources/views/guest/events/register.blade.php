@@ -19,7 +19,7 @@
             </form>
               </div>
               <h2 class="font-bold text-xl text-accent-color leading-tight">
-                {{ __('Our Events') }}
+                {{ __('Register event:') }} {{ $event->title }}
             </h2>
             <x-link-button :href=" route('cart')" class="mx-8 my-2 w-fit bg-light-color text-secondary-color font-semibold">
                 {{ __('View Cart') }}
@@ -28,28 +28,48 @@
         </div>
     </section>
 
-    <section class="events">
-      <div class="grid grid-cols-1 gap-6 my-4 mx-8  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        @foreach ($events as $event)
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#" class="rounded-t-lg">
-                    <img class="border rounded-t-lg" src="{{ asset('images/taurus2.jpg') }}" alt="" />
-                </a>
-                <div class="p-4">
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$event->name}}</h5>
-                    </a>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{$event->description}}</p>
-                    <a href="/events/register/{{$event->id}}" class="inline-flex self-end w-fit items-center px-3 py-2 text-sm font-medium text-center text-light-color bg-primary-color rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Register
-                        <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                        </svg>
-                    </a>
+    <!-- products section -->
+    <section class="event">
+
+        <div class="max-w-7lx h-5/6 py-12 px-2 m-auto sm:px-8 lg:px-12">
+           
+            <form method="POST" action="{{ route('events.store') }}" enctype="multipart/form-data">
+                @csrf
+    
+                <x-text-input id="event_id" type="hidden" name="event_id" value="{{$event->id}}"/>
+                <!-- full name -->
+                <div class="mt-4">
+                    <x-input-label for="name" :value="__('Full Name')" />
+    
+                    <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
                 </div>
+    
+                <!-- Phone -->
+                <div class="mt-4">
+                    <x-input-label for="phone" :value="__('Phone')" />
+    
+                    <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus />
+                    <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+                </div>
+
+                <!-- mpesa_code -->
+                <div class="mt-4">
+                    <x-input-label for="mpesa_code" :value="__('Mpesa Code')" />
+    
+                    <x-text-input id="mpesa_code" class="block mt-1 w-full" type="text" name="mpesa_code" :value="old('mpesa_code')" required autofocus />
+                    <x-input-error :messages="$errors->get('mpesa_code')" class="mt-2" />
+                </div>
+    
+    
+                <div class="flex items-center justify-end mt-4">
+                    <x-primary-button class="ml-4">
+                        {{ __('Register') }}
+                    </x-primary-button>
+                </div>
+            </form>
             </div>
-        @endforeach    
-    </div>
+        
     </section>
 
 </x-guests-layout>

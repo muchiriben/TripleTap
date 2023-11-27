@@ -12,7 +12,7 @@
 
         <div class="max-w-7lx h-5/6 py-12 px-2 m-auto sm:px-8 lg:px-12">
            
-        <form method="POST" action="{{ route('course.store') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.courses.store') }}" enctype="multipart/form-data">
             @csrf
 
             <!-- course name -->

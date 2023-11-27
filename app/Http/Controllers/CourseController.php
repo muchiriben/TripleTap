@@ -56,7 +56,7 @@ class CourseController extends Controller
         ]);
 
 
-        return redirect()->route('course.index');
+        return redirect()->route('admin.courses.index');
     }
 
     /**

@@ -56,7 +56,7 @@ class EventController extends Controller
         ]);
 
 
-        return redirect()->route('event.index');
+        return redirect()->route('admin.events.index');
     }
 
     /**

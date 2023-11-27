@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class EventRegistration extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'event_id',
+        'name',
+        'phone',
+        'mpesa_code',
+        'payment_status',
+    ];
 }
