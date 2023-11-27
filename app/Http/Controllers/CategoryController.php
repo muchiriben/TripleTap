@@ -54,7 +54,7 @@ class CategoryController extends Controller
         }
 
 
-        return redirect()->route('categories.index')->with('success', 'New category added');
+        return redirect()->route('admin.categories.index')->with('success', 'New category added');
     }
 
     /**
@@ -94,7 +94,7 @@ class CategoryController extends Controller
         $category->manufacturer_id = $request->manufacturer_id;
         $category->save();
 
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
 
     /**

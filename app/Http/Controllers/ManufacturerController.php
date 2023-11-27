@@ -38,7 +38,7 @@ class ManufacturerController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect()->route('manufacturers.index')->with('success', 'New manufacturer added');
+        return redirect()->route('admin.manufacturers.index')->with('success', 'New manufacturer added');
     }
 
     /**
@@ -68,7 +68,7 @@ class ManufacturerController extends Controller
         $manufacturer->name = $request->name;
         $manufacturer->save();
 
-        return redirect()->route('manufacturers.index');
+        return redirect()->route('admin.manufacturers.index');
     }
 
     /**
@@ -77,6 +77,6 @@ class ManufacturerController extends Controller
     public function destroy(Manufacturer $manufacturer)
     {
         $manufacturer->delete();
-        return redirect()->route('manufacturers.index');
+        return redirect()->route('admin.manufacturers.index');
     }
 }

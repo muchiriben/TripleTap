@@ -54,7 +54,7 @@ class SubCategoryController extends Controller
         }
 
 
-        return redirect()->route('subcategories.index')->with('success', 'New category added');
+        return redirect()->route('admin.subcategories.index')->with('success', 'New category added');
     }
 
     /**
@@ -94,7 +94,7 @@ class SubCategoryController extends Controller
         $subCategory->category_id = $request->category_id;
         $subCategory->save();
 
-        return redirect()->route('subcategories.index');
+        return redirect()->route('admin.subcategories.index');
     }
 
     /**

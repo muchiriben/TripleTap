@@ -10,6 +10,9 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CourseandEventController;
+use App\Http\Controllers\ManufacturerController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,9 +49,12 @@ Route::group([
 ], function () {
     Route::resource('courses', CourseController::class);
     Route::resource('events', EventController::class);
+    Route::resource('manufacturers', ManufacturerController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('subcategories', SubCategoryController::class);
+    Route::resource('products', ProductController::class);
 });
 
-Route::resource('products', ProductController::class)->middleware('auth');
 Route::resource('message', MessageController::class);
 
 //guest
