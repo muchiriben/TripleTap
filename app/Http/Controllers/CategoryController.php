@@ -33,7 +33,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:3048'],
+            'image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:5048'],
         ]);
 
         //handle if uploaded
@@ -49,7 +49,7 @@ class CategoryController extends Controller
 
 
 
-        return redirect()->route('admin.categories.index')->with('success', 'New category added');
+        return redirect()->route('admin.categories.create')->with('success', 'New category added');
     }
 
     /**

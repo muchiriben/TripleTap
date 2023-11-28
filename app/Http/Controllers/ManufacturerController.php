@@ -38,7 +38,7 @@ class ManufacturerController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect()->route('admin.manufacturers.index')->with('success', 'New manufacturer added');
+        return redirect()->route('admin.manufacturers.create')->with('success', 'New manufacturer added');
     }
 
     /**

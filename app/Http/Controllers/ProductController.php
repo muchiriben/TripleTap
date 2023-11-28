@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use App\Models\Product;
+use App\Models\Manufacturer;
+use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -23,7 +26,15 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        $manufacturers = Manufacturer::orderBy('name', 'asc')->get();
+        $categories = Category::orderBy('name', 'asc')->get();
+        $subcategories = subcategory::orderBy('name', 'asc')->get();
+
+        return view('admin.products.create')->with([
+            'manufacturers' => $manufacturers,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+        ]);
     }
 
     /**
@@ -33,30 +44,28 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'unit_price' => ['required', 'integer', 'numeric'],
+            'unit_price' => ['required', 'integer'],
             'description' => ['required', 'string'],
-            'product_image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:3048'],
-        ]);
-
-        $product = Product::create([
-            'name' => $request->name,
-            'price' => $request->price,
-            'description' => $request->description,
+            'image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:6048'],
         ]);
 
         //handle if uploaded
         if ($request->hasFile('product_image')) {
             // Upload an Image File to Cloudinary 
             $uploadedFileUrl = Cloudinary::upload($request->file('product_image')->getRealPath(), ['folder' => 'product_images'])->getSecurePath();
-
-            //update
-            $product->update([
-                'product_image' => $uploadedFileUrl,
-            ]);
         }
 
+        $product = Product::create([
+            'name' => $request->name,
+            'manufacturer_id' => $request->manufacturer_id,
+            'subcategory_id' => $request->subcategory_id,
+            'price' => $request->price,
+            'description' => $request->description,
+            'product_image' => $uploadedFileUrl,
+        ]);
 
-        return redirect()->route('products.index')->with('success', 'New product added');
+
+        return redirect()->route('admin.products.create')->with('success', 'New product added');
     }
 
     /**

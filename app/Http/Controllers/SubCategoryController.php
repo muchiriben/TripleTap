@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use App\Models\SubCategory;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class SubCategoryController extends Controller
@@ -23,7 +24,11 @@ class SubCategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.subcategories.create');
+        $categories = Category::orderBy('name', 'asc')
+            ->get();
+        return view('admin.subcategories.create')->with([
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -50,7 +55,7 @@ class SubCategoryController extends Controller
         ]);
 
 
-        return redirect()->route('admin.subcategories.index')->with('success', 'New category added');
+        return redirect()->route('admin.subcategories.create')->with('success', 'New category added');
     }
 
     /**

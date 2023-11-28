@@ -13,6 +13,7 @@ use App\Http\Controllers\CourseandEventController;
 use App\Http\Controllers\ManufacturerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\FindSubcategoriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,6 +54,7 @@ Route::group([
     Route::resource('categories', CategoryController::class);
     Route::resource('subcategories', SubCategoryController::class);
     Route::resource('products', ProductController::class);
+    Route::get('/findsubcategories/{id}', [FindSubcategoriesController::class, 'findsubcategories'])->name('findsubcategories');
 });
 
 Route::resource('message', MessageController::class);
@@ -60,6 +62,7 @@ Route::resource('message', MessageController::class);
 //guest
 Route::resource('checkout', CheckoutController::class);
 Route::get('/shop', [ShopController::class, 'shop'])->name('shop');
+Route::get('/shop/{id}', [ShopController::class, 'subcategory'])->name('subcategory');
 Route::post('/search', [ShopController::class, 'search'])->name('search');
 Route::get('/courses', [CourseandEventController::class, 'courses'])->name('courses');
 Route::get('/courses/register/{id}', [CourseandEventController::class, 'courses_registration'])->name('courses.register');

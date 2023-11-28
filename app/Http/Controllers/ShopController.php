@@ -4,18 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\SubCategory;
+use App\Models\Manufacturer;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class ShopController extends Controller
 {
     public function shop()
     {
-        $products = Product::all();
-        $cart_products = Cart::content();
+        $manufacturers = Manufacturer::all();
+        $categories = Category::all();
 
-        return view('guest.shop.products')->with([
-            'products' => $products,
-            'cart_products' => $cart_products,
+        return view('guest.shop.shop')->with([
+            'manufacturers' => $manufacturers,
+            'categories' => $categories,
+        ]);
+    }
+
+    public function subcategory($id)
+    {
+        $manufacturers = Manufacturer::all();
+        $subcategories = SubCategory::where('category_id', $id)->get();
+
+        return view('guest.shop.subcategories')->with([
+            'manufacturers' => $manufacturers,
+            'subcategories' => $subcategories,
         ]);
     }
 
