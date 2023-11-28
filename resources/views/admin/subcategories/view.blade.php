@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Manufacturers') }}
+            {{ __('SubCategories') }}
         </h2>
     </x-slot>
 
@@ -18,7 +18,10 @@
                                 </div>
                             </th>
                             <th scope="col" class="py-3 px-6 text-xs tracking-wider text-left text-white font-bold uppercase dark:text-gray-400">
-                                Name
+                                SubCategory Name
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-xs tracking-wider text-left text-white font-bold uppercase dark:text-gray-400">
+                                Category Name
                             </th>
                             <th scope="col" class="p-4">
                                 <span class="sr-only">Edit</span>
@@ -29,20 +32,22 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                      @foreach ($manufacturers as $manufacturer)
+                      @foreach ($subcategories as $subcategory)
                         <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
                             <td class="p-1 w-4">
-                              {{ $manufacturer->id }}
+                              {{ $subcategory->id }}
                             </td>
-                            <td class="py-1 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $manufacturer->name }}</td>
+                            <td class="py-1 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $subcategory->name }}</td>
+                            <td class="py-1 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{{ $subcategory->category_id  }}</td>
+                            <td class="py-1 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $subcategory->created_at }}</td>
                             <td class="py-1 px-6 text-sm font-medium text-right whitespace-nowrap">
-                              <x-secondary-button class="gradient" :href=" route('admin.manufacturers.update', $manufacturer->id)">
+                              <x-secondary-button class="gradient" :href="route('admin.subcategories.update', $subcategory->id)">
                                 {{ __('Edit') }}
                             </x-secondary-button>
                             </td>
                             <td class="py-1 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                <x-secondary-button class="gradient" :href=" route('admin.manufacturers.update', $manufacturer->id)">
-                                  {{ __('Edit') }}
+                                <x-secondary-button class="gradient" :href=" route('admin.subcategories.update', $subcategory->id)">
+                                  {{ __('Delete') }}
                               </x-secondary-button>
                               </td>
                         </tr>

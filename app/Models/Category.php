@@ -10,7 +10,6 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = [
-        'manufacturer_id',
         'name',
         'image',
     ];

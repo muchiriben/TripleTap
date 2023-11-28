@@ -37,21 +37,17 @@ class SubCategoryController extends Controller
             'image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:3048'],
         ]);
 
-        $subCategory = SubCategory::create([
-            'name' => $request->name,
-            'category_id' => $request->category_id,
-        ]);
-
         //handle if uploaded
         if ($request->hasFile('image')) {
             // Upload an Image File to Cloudinary 
             $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), ['folder' => 'subcategory_images'])->getSecurePath();
-
-            //update
-            $subCategory->update([
-                'image' => $uploadedFileUrl,
-            ]);
         }
+
+        $subCategory = SubCategory::create([
+            'name' => $request->name,
+            'category_id' => $request->category_id,
+            'image' => $uploadedFileUrl,
+        ]);
 
 
         return redirect()->route('admin.subcategories.index')->with('success', 'New category added');
@@ -72,7 +68,7 @@ class SubCategoryController extends Controller
     {
         return view('admin.subcategories.edit')
             ->with([
-                'SubCategory' => $subCategory,
+                'subCategory' => $subCategory,
             ]);
     }
 

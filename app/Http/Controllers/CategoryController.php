@@ -33,25 +33,20 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'manufacturer_id' => ['required', 'integer'],
             'image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:3048'],
-        ]);
-
-        $category = category::create([
-            'name' => $request->name,
-            'manufacturer_id' => $request->manufacturer_id,
         ]);
 
         //handle if uploaded
         if ($request->hasFile('image')) {
             // Upload an Image File to Cloudinary 
             $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), ['folder' => 'category_images'])->getSecurePath();
-
-            //update
-            $category->update([
-                'image' => $uploadedFileUrl,
-            ]);
         }
+
+        $category = category::create([
+            'name' => $request->name,
+            'image' => $uploadedFileUrl,
+        ]);
+
 
 
         return redirect()->route('admin.categories.index')->with('success', 'New category added');
@@ -91,7 +86,6 @@ class CategoryController extends Controller
         }
 
         $category->name = $request->name;
-        $category->manufacturer_id = $request->manufacturer_id;
         $category->save();
 
         return redirect()->route('admin.categories.index');

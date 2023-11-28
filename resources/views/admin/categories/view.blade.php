@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Manufacturers') }}
+            {{ __('Categories') }}
         </h2>
     </x-slot>
 
@@ -29,20 +29,21 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                      @foreach ($manufacturers as $manufacturer)
+                      @foreach ($categories as $category)
                         <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
                             <td class="p-1 w-4">
-                              {{ $manufacturer->id }}
+                              {{ $category->id }}
                             </td>
-                            <td class="py-1 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $manufacturer->name }}</td>
+                            <td class="py-1 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $category->name }}</td>
+                            <td class="py-1 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $category->created_at }}</td>
                             <td class="py-1 px-6 text-sm font-medium text-right whitespace-nowrap">
-                              <x-secondary-button class="gradient" :href=" route('admin.manufacturers.update', $manufacturer->id)">
+                              <x-secondary-button class="gradient" :href="route('admin.categories.update', $category->id)">
                                 {{ __('Edit') }}
                             </x-secondary-button>
                             </td>
                             <td class="py-1 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                <x-secondary-button class="gradient" :href=" route('admin.manufacturers.update', $manufacturer->id)">
-                                  {{ __('Edit') }}
+                                <x-secondary-button class="gradient" :href=" route('admin.categories.update', $category->id)">
+                                  {{ __('Delete') }}
                               </x-secondary-button>
                               </td>
                         </tr>
