@@ -44,9 +44,9 @@
 
           <!-- SubCategory -->
           <div class="mt-4">
-            <x-input-label for="subcategory" :value="__('SubCategory')" />
+            <x-input-label for="subcategory_id" :value="__('SubCategory')" />
 
-            <select name="subcategory" id="subcategory" class= "block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
+            <select name="subcategory_id" id="subcategory_id" class= "block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
                 
             </select>
         </div>
@@ -60,9 +60,9 @@
 
              <!-- Product image -->
              <div class="mt-4">
-                <x-input-label for="product_image" :value="__('Product Image')" />
+                <x-input-label for="image" :value="__('Accessory/Product Image')" />
 
-                <x-text-input id="product_image" class="block mt-1 w-full" type="file" name="product_image" :value="old('product_image')" placeholder="Product Image" autofocus />
+                <x-text-input id="image" class="block mt-1 w-full" type="file" name="image" :value="old('image')" placeholder="Product Image" autofocus />
             </div>
 
             <!-- Description -->
@@ -95,19 +95,19 @@
                     success:function(data) {
                         //console.log(data);
                       if(data){
-                        $('#subcategory').empty();
-                        $('#subcategory').focus;
-                        $('#subcategory').append('<option value="">-- Select subcategory --</option>'); 
+                        $('#subcategory_id').empty();
+                        $('#subcategory_id').focus;
+                        $('#subcategory_id').append('<option value="">-- Select subcategory --</option>'); 
                         $.each(data, function(key, value){
-                        $('select[name="subcategory"]').append('<option value="'+ value.id +'">' + value.name + '</option>');
+                        $('select[name="subcategory_id"]').append('<option value="'+ value.id +'">' + value.name + '</option>');
                     });
                   }else{
-                    $('#subcategory').empty();
+                    $('#subcategory_id').empty();
                   }
                   }
                 });
             }else{
-              $('#subcategory').empty();
+              $('#subcategory_id').empty();
             }
         });
     });

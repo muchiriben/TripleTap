@@ -44,15 +44,15 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'unit_price' => ['required', 'integer'],
+            'price' => ['required', 'integer'],
             'description' => ['required', 'string'],
             'image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:6048'],
         ]);
 
         //handle if uploaded
-        if ($request->hasFile('product_image')) {
+        if ($request->hasFile('image')) {
             // Upload an Image File to Cloudinary 
-            $uploadedFileUrl = Cloudinary::upload($request->file('product_image')->getRealPath(), ['folder' => 'product_images'])->getSecurePath();
+            $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), ['folder' => 'accessories_images'])->getSecurePath();
         }
 
         $product = Product::create([
@@ -61,7 +61,7 @@ class ProductController extends Controller
             'subcategory_id' => $request->subcategory_id,
             'price' => $request->price,
             'description' => $request->description,
-            'product_image' => $uploadedFileUrl,
+            'image' => $uploadedFileUrl,
         ]);
 
 
@@ -94,13 +94,13 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //handle if uploaded
-        if ($request->hasFile('product_image')) {
+        if ($request->hasFile('image')) {
 
             // Upload an Image File to Cloudinary 
-            $uploadedFileUrl = Cloudinary::upload($request->file('product_image')->getRealPath(), ['folder' => 'product_images'])->getSecurePath();
+            $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), ['folder' => 'accessories_images'])->getSecurePath();
 
             //update
-            $product->product_image = $uploadedFileUrl;
+            $product->image = $uploadedFileUrl;
         }
 
         $product->name = $request->name;
