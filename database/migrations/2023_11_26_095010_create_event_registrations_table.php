@@ -14,10 +14,27 @@ return new class extends Migration
         Schema::create('event_registrations', function (Blueprint $table) {
             $table->id();
             $table->integer('event_id');
-            $table->string('name');
-            $table->string('phone');
-            $table->string('mpesa_code');
+            //individual
+            $table->string('individual_name')->nullable();
+            $table->string('individual_age')->nullable();
+            $table->string('individual_phone')->nullable();
+            $table->integer('individual_national_id')->nullable();
+            $table->string('individual_location')->nullable();
+            $table->string('individual_proffession')->nullable();
+
+            //group
+            $table->string('leader_name')->nullable();
+            $table->string('leader_phone')->nullable();
+            $table->integer('leader_national_id')->nullable();
+            $table->string('leader_location')->nullable();
+            $table->string('group_relation')->nullable();
+            $table->integer('from_age')->nullable();
+            $table->integer('to_age')->nullable();
+
+            $table->integer('group_no');
+            $table->string('mpesa_code')->nullable();
             $table->string('payment_status');
+            $table->string('agreement');
             $table->timestamps();
         });
     }

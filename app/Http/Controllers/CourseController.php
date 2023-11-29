@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use App\Models\Course;
 use Illuminate\Http\Request;
 
@@ -33,30 +34,24 @@ class CourseController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'price' => ['required', 'integer', 'numeric'],
             'description' => ['required', 'string'],
-            'thumbnail' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'thumbnail' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:6048'],
         ]);
 
         //handle if uploaded
-        //get filename with extension
-        $fileNameWithExt = $request->file('thumbnail')->getClientOriginalName();
-        //get just filename
-        $filename  = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-        //get just ext
-        $extension = $request->file('thumbnail')->getClientOriginalExtension();
-        //filename to store
-        $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-        // upload image
-        $path = $request->file('thumbnail')->storeAs('public/courses/thumbnails', $fileNameToStore);
+        if ($request->hasFile('thumbnail')) {
+            // Upload an thumbnail File to Cloudinary 
+            $uploadedFileUrl = Cloudinary::upload($request->file('thumbnail')->getRealPath(), ['folder' => 'courses_thumbnails'])->getSecurePath();
+        }
 
         $course = Course::create([
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
-            'thumbnail' => $fileNameToStore,
+            'thumbnail' => $uploadedFileUrl,
         ]);
 
 
-        return redirect()->route('admin.courses.index');
+        return redirect()->route('admin.courses.create');
     }
 
     /**

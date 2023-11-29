@@ -33,7 +33,7 @@ class EventController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'price' => ['required', 'integer', 'numeric'],
             'description' => ['required', 'string'],
-            'thumbnail' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'thumbnail' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:6048'],
         ]);
 
         //handle if uploaded
