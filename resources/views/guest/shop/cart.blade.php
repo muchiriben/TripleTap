@@ -2,7 +2,7 @@
 
     <section name="title">
         <div class="p-2 flex justify-around items-center h-auto w-full bg-secondary-color">
-          <x-link-button :href=" route('shop')" class="mx-8 my-2 w-fit bg-light-color text-secondary-color font-semibold">
+          <x-link-button href="{{url()->previous()}}" class="mx-8 my-2 w-fit bg-light-color text-secondary-color font-semibold">
             <img class="h-6 w-6 mx-2" src="{{ asset('images/back.svg') }}" alt="">
             {{ __('Back') }}
           </x-link-button>
@@ -65,7 +65,7 @@
                     @endif
                     @endif
                     @endforeach
-                </div>  
+                  </div>  
                   <div class="ml-6">
                     <div class="text-sm font-medium text-black">
                     {{ $item->model->name }}
@@ -235,4 +235,4 @@
       })();
   </script>
   
-  </x-urban-layout>
+  </x-guests-layout>

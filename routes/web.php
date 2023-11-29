@@ -63,6 +63,8 @@ Route::resource('message', MessageController::class);
 Route::resource('checkout', CheckoutController::class);
 Route::get('/shop', [ShopController::class, 'shop'])->name('shop');
 Route::get('/shop/{id}', [ShopController::class, 'subcategory'])->name('subcategory');
+Route::get('/shop/accessories/{id}', [ShopController::class, 'accessories'])->name('accessories');
+Route::get('/shop/manufacturer/accessories/{id}', [ShopController::class, 'accessoriesbymanufacturer'])->name('accessoriesbymanufacturer');
 Route::post('/search', [ShopController::class, 'search'])->name('search');
 Route::get('/courses', [CourseandEventController::class, 'courses'])->name('courses');
 Route::get('/courses/register/{id}', [CourseandEventController::class, 'courses_registration'])->name('courses.register');

@@ -2,17 +2,17 @@
 
     <section class="w-full" name="title">
         <div class="py-1 flex justify-around items-center h-auto w-full bg-secondary-color">
-          <div class="relative text-center text-gray-600">
-            <form method="POST" action="{{ route('search') }}">
-              @csrf
-                <select name="manufacturer_id" id="manufacturer_id" class= "block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
-                  <option value="">--Select Manufacturer--</option>
-                    @foreach ($manufacturers as $manufacturer)
-                        <option value="{{ $manufacturer->id }}">{{ $manufacturer->name }}</option>
-                    @endforeach
-                </select>
-            </form>
-          </div>
+            <div class="relative text-center text-gray-600">
+                <form method="POST" action="{{ route('search') }}">
+                  @csrf
+                    <select name="manufacturer_id" id="manufacturer_id" class= "block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
+                      <option value="">--Select Manufacturer--</option>
+                        @foreach ($manufacturers as $manufacturer)
+                            <option value="{{ $manufacturer->id }}">{{ $manufacturer->name }}</option>
+                        @endforeach
+                    </select>
+                </form>
+              </div>
 
         <div class="pt-3 pb-2 relative text-center text-gray-600">
                 <form method="POST" action="{{ route('search') }}">

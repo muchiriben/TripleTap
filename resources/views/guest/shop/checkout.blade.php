@@ -97,7 +97,7 @@
           
                     <!-- More items... -->
                   </tbody>
-                  <span class="text-left font-semibold text-xl text-accent-color">Total to be paid(Including delivery fee( KSh 60): {{ Cart::instance('default')->subtotal(0) + 60 }} /=</span>
+                  <span class="text-left font-semibold text-xl text-accent-color">Total to be paid(Including delivery fee( KSh 60)): {{ Cart::instance('default')->subtotal(0) }} /=</span>
                 </table>
           </div>
         
