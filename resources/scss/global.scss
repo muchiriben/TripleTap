@@ -38,7 +38,7 @@ footer {
     background-color: $secondary;
   
     h3 {
-      font-size: 1.4vw;
+      font-size: 1em;
       font-weight: 700;
       color: $light;
     }
@@ -91,4 +91,9 @@ footer {
     }
   }
   
-  
+  /* responsive settings section */
+@media screen and (max-width: 800px) {
+  footer {
+    flex-direction: column;
+  }
+}

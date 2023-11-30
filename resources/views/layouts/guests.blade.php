@@ -22,14 +22,15 @@
                 </div>
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="#about">About Us</a> </li>
-                    <li><a href="#courses">Our Courses</a></li>
-                    <li><a href="#courses">Events</a></li>
+                    <li><a href="#about">About</a> </li>
+                    <li><a href="/courses">Courses</a></li>
+                    <li><a href="/events">Events</a></li>
                     <li><a href="#contact-us">Contact Us</a></li>
-                    <li><a href="/gallery.html">Gallery</a></li><br>
+                    <li><a href="/gallery.html">Gallery</a></li>
+                    <li><a href="/l">Storage</a></li><br>
                 </ul> 
                 <div class="nav-cta">
-                    <a href=""><button>
+                    <a href="/shop"><button>
                         <span>Shop now</span>
                         <svg width="34" height="34" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="37" cy="37" r="35.5" stroke="#FFCE63" stroke-width="4"></circle>
@@ -44,11 +45,13 @@
         
             <nav class="side-navbar" id="side-navbar">
                 <ul>
-                    <li><a href="#about">About Us</a> </li>
-                    <li><a href="#team">Our Team</a> </li>
-                    <li><a href="#services">Our Services</a> </li>
-                    <li><a href="#clients">Our Clients</a> </li>
-                    <li><a href="#contact-us">Contact Us</a> </li><br>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#about">About</a> </li>
+                    <li><a href="/courses">Courses</a></li>
+                    <li><a href="/events">Events</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                    <li><a href="/gallery.html">Gallery</a></li>
+                    <li><a href="/l">Storage</a></li><br>
                 </ul>
                 <div class="nav-cta">
                     <a href=""><button>
@@ -66,7 +69,7 @@
         {{ $slot }}
 
         <footer>
-            <h3>&copy 2023 tripletap.com ALL RIGHTS RESERVED</h3>
+            <h3>&copy 2023 tripletaplimited.com</h3>
             <h3>Terms & Conditions</h3>
             <h3>Our Policies</h3>
         </footer>

@@ -73,16 +73,23 @@ header {
     li {
       list-style-type: none;
       margin: 0 20px;
+      padding: 5px 10px;
+      border-radius: 5px;
       cursor: pointer;
 
       a {
         text-decoration: none;
         color: $secondary;
-        font-size: 1.3vw;
+        font-size: 1em;
         font-weight: 700;
-        &:hover {
-          color: $primary;
-        }
+      }
+
+      &:hover {
+         background-color: #FFCE63;
+        
+         a {
+          color: #F2F7FF;
+         }
       }
     }
   }
@@ -94,7 +101,7 @@ header {
   padding: 8px 30px;
   margin: 0 25px;
   color: $secondary;
-  font-size: 1.3vw;
+  font-size: 1em;
   font-weight: 600;
   box-shadow: 2px 3px 9px 0px rgba(23,0,57,0.74);
   -webkit-box-shadow: 2px 3px 9px 0px rgba(23,0,57,0.74);
@@ -144,17 +151,17 @@ header {
       display: flex;
       align-items: center;
       flex-direction: column;
-      padding: 20px;
+      padding: 10px;
   
       li {
         list-style-type: none;
-        margin: 25px;
+        margin: 20px;
         cursor: pointer;
   
         a {
           text-decoration: none;
           color: $light;
-          font-size: 5vw;
+          font-size: 1.5em;
           text-align: center;
           &:hover {
             color: $accent;
@@ -162,7 +169,7 @@ header {
         }
       }
       .nav-button {
-          font-size: 4vw;
+          font-size: 1.5em;
       }
     }
 

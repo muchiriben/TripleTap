@@ -162,8 +162,8 @@
    <script>
     $(document).ready(function() {
     
-});
-</script
+   });
+  </script>
 
 
 </x-guests-layout>
