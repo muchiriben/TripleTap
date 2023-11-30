@@ -1,7 +1,7 @@
 <x-guests-layout>
 
     <section class="w-full" name="title">
-        <div class="py-1 flex justify-around items-center h-auto w-full bg-secondary-color">
+        <div class="py-1 flex justify-around items-center flex-col sm:flex-row h-auto w-full bg-secondary-color">
           <div class="relative text-center text-gray-600">
             <form method="POST" action="{{ route('search') }}">
               @csrf
@@ -17,8 +17,8 @@
         <div class="pt-3 pb-2 relative text-center text-gray-600">
                 <form method="POST" action="{{ route('search') }}">
                     @csrf
-                <input class="border-2 border-light-color bg-white h-8 px-5 pr-16 rounded-lg text-sm text-accent-color focus:outline-none"
-                  type="search" name="search" placeholder="Accessories">
+                <input class="border-2 border-light-color bg-white h-8 px-4 pr-16 rounded-lg w-64 text-sm text-accent-color focus:outline-none"
+                  type="search" name="search" placeholder="Search Accessories">
                 <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
                   <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
@@ -45,17 +45,17 @@
     </section>
 
     <!-- products section -->
-    <section class="categories">
+    <section class="categories min-h-screen">
 
-        <div class="grid grid-cols-1 gap-8 my-4 mx-8  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div class="grid grid-cols-1 gap-8 my-4 mx-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             @foreach($categories as $category)
-            <a href="/shop/{{ $category->id }}" class="h-60 w-56">
+            <a href="/shop/{{ $category->id }}" class="h-60 w-80 sm:w-72">
               <div class="flex flex-col h-full w-full">
                    <div class="flex justify-center items-center h-48 w-full shadow-xl rounded-lg bg-nuetral-color">
                        <img class="h-full w-full rounded-lg object-cover" src="{{ $category->image }}" alt="">
                    </div>
                    <div class="flex flex-row justify-between m-2 h-1/5 px-2 w-full">
-                        <h2 class="font-bold text-sm lg:text-base">{{ $category->name }}</h2>
+                        <h2 class="font-bold text-lg lg:text-base">{{ $category->name }}</h2>
                 </div>
               </div>
             </a>  

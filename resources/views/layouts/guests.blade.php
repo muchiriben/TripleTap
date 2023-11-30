@@ -22,10 +22,10 @@
                 </div>
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="#about">About</a> </li>
+                    <li><a href="/#about">About</a> </li>
                     <li><a href="/courses">Courses</a></li>
                     <li><a href="/events">Events</a></li>
-                    <li><a href="#contact-us">Contact Us</a></li>
+                    <li><a href="/#contact-us">Contact Us</a></li>
                     <li><a href="/gallery.html">Gallery</a></li>
                     <li><a href="/l">Storage</a></li><br>
                 </ul> 
@@ -73,6 +73,5 @@
             <h3>Terms & Conditions</h3>
             <h3>Our Policies</h3>
         </footer>
-
     </body>
 </html>

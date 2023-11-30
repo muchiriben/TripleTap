@@ -1,13 +1,13 @@
 <x-guests-layout>
 
-    <section name="title">
-        <div class="p-2 flex justify-around items-center h-auto w-full bg-secondary-color">
+    <section name="title" class="w-full flex justify-center items-center">
+        <div class="p-2 flex justify-around items-center h-auto w-1/2 bg-secondary-color rounded-lg">
           <x-link-button href="{{url()->previous()}}" class="mx-8 my-2 w-fit bg-light-color text-secondary-color font-semibold">
             <img class="h-6 w-6 mx-2" src="{{ asset('images/back.svg') }}" alt="">
             {{ __('Back') }}
           </x-link-button>
             <h2 class="font-bold text-xl text-accent-color leading-tight">
-                {{ __('Shopping Cart') }}
+                {{ __('Cart') }}
             </h2>
             <x-link-button :href=" route('checkout.index')" class="mx-8 my-2 w-fit bg-light-color text-secondary-color font-semibold">
               {{ __('Checkout') }}
@@ -16,7 +16,7 @@
         </div>
     </section>
     
-    <div class="flex flex-col bg-neutral-color py-4 mx-8 w-auto h-full">
+    <div class="flex flex-col bg-neutral-color py-4 mx-8 w-auto min-h-screen">
   
       <div class="flex justify-center items-center bg-white shadow-md p-4 rounded-lg my-4">
        
