@@ -28,9 +28,8 @@ class CourseRegistration extends Model
         'group_relation',
         'from_age',
         'to_age',
-
         'group_no',
-        'mpesa_code',
+
         'payment_status',
         'agreement',
     ];

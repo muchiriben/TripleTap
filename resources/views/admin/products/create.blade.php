@@ -82,7 +82,7 @@
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script>
+	    <script>
          $(document).ready(function() {
         $('#category_id').on('change', function() {
             var categoryID = $(this).val();

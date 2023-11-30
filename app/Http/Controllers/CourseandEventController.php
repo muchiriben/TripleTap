@@ -22,22 +22,35 @@ class CourseandEventController extends Controller
         return view('guest.courses.register')->with('course', $course);
     }
 
-    public function courses_store(Request $request)
+    public function courses_store_individual(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255'],
-            'mpesa_code' => ['required', 'string', 'max:255'],
+            'individual_name' => ['required', 'string', 'max:255'],
+            'individual_age' => ['required', 'integer'],
+            'individual_phone' => ['required', 'string'],
+            'individual_national_id' => ['required', 'integer'],
+            'individual_location' => ['required', 'string', 'max:255'],
+            'individual_proffession' => ['required', 'string', 'max:255'],
+            'agreement' => ['required', 'string'],
         ]);
 
         CourseRegistration::create([
             'course_id' => $request->course_id,
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'mpesa_code' => $request->mpesa_code,
-            'payment_status' => 'Pending Confirmation',
+            'individual_name' => $request->individual_name,
+            'individual_age' => $request->individual_age,
+            'individual_phone' => $request->individual_phone,
+            'individual_national_id' => $request->individual_national_id,
+            'individual_location' => $request->individual_location,
+            'individual_proffession' => $request->individual_proffession,
+            'agreement' => $request->agreement,
+            'payment_status' => 'Pending',
         ]);
         return redirect()->route('courses')->with('succcess', 'Registration Successfull');
+    }
+
+    public function courses_store_group(Request $request)
+    {
+        //
     }
 
     public function events()

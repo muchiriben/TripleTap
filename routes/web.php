@@ -68,7 +68,8 @@ Route::get('/shop/manufacturer/accessories/{id}', [ShopController::class, 'acces
 Route::post('/search', [ShopController::class, 'search'])->name('search');
 Route::get('/courses', [CourseandEventController::class, 'courses'])->name('courses');
 Route::get('/courses/register/{id}', [CourseandEventController::class, 'courses_registration'])->name('courses.register');
-Route::post('/courses/store', [CourseandEventController::class, 'courses_store'])->name('courses.store');
+Route::post('/courses/store/individual', [CourseandEventController::class, 'courses_store_individual'])->name('courses.store.individual');
+Route::post('/courses/store/group', [CourseandEventController::class, 'courses_store_group'])->name('courses.store.group');
 Route::get('/events', [CourseandEventController::class, 'events'])->name('events');
 Route::get('/events/register/{id}', [CourseandEventController::class, 'events_registration'])->name('events.register');
 Route::post('/events/store', [CourseandEventController::class, 'events_store'])->name('events.store');

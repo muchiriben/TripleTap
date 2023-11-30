@@ -17,7 +17,7 @@ return new class extends Migration
 
             //individual
             $table->string('individual_name')->nullable();
-            $table->string('individual_age')->nullable();
+            $table->integer('individual_age')->nullable();
             $table->string('individual_phone')->nullable();
             $table->integer('individual_national_id')->nullable();
             $table->string('individual_location')->nullable();
@@ -31,9 +31,8 @@ return new class extends Migration
             $table->string('group_relation')->nullable();
             $table->integer('from_age')->nullable();
             $table->integer('to_age')->nullable();
+            $table->integer('group_no')->nullable();
 
-            $table->integer('group_no');
-            $table->string('mpesa_code')->nullable();
             $table->string('payment_status');
             $table->string('agreement');
             $table->timestamps();
