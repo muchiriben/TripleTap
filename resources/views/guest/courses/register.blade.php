@@ -11,7 +11,7 @@
     </section>
 
     <!-- products section -->
-    <section class="course w-1/2">
+    <section class="course min-h-screen w-full p-2 flex items-center justify-center flex-col">
 
         <h1 class="font-bold text-center text-xl my-2">{{ $course->name }}</h1>
 
@@ -23,7 +23,7 @@
         </select>
 
         <fieldset id="individual_form" class="flex flex-col items-start w-full p-4 border-2 border-secondary-color rounded-md mt-4">
-            <legend class="mx-8">Individual Registration:</legend>
+            <legend class="px-2">Individual Registration:</legend>
             <form id="individual-form" class="w-full" method="POST" action="{{ route('courses.store.individual') }}">
                 @csrf
                     <x-text-input id="course_id" type="hidden" name="course_id" value="{{$course->id}}"/> 
@@ -74,7 +74,7 @@
 
         
         <fieldset id="group_form" class="hidden flex-col items-start w-full p-4 border-2 border-secondary-color rounded-md mt-4">
-            <legend class="mx-8">Group Registration:</legend>
+            <legend class="px-2">Group Registration:</legend>
             <form id="group-form" class="w-full" method="POST" action="{{ route('courses.store.group') }}" enctype="multipart/form-data">
                 @csrf
                     <x-text-input id="course_id" type="hidden" name="course_id" value="{{$course->id}}"/>   

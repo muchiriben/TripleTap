@@ -3,14 +3,14 @@
     <section class="w-full" name="title">
         <div class="py-2 flex justify-around items-center h-auto w-full bg-secondary-color">
             
-              <h2 class="font-bold text-xl text-accent-color leading-tight">
+            <h2 class="font-bold text-xl text-accent-color leading-tight">
                 {{ __('Our Courses') }}
             </h2>
             
         </div>
     </section>
 
-    <section class="courses">
+    <section class="courses min-h-screen">
         <div class="grid grid-cols-1 gap-6 my-4 mx-8  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             @foreach ($courses as $course)
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
