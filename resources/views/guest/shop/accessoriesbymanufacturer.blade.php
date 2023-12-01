@@ -46,6 +46,7 @@
 
     <!-- products section -->
     <section class="products min-h-screen">
+      @include('includes.messages')
 
         <div class="grid grid-cols-1 gap-6 my-4 mx-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             @foreach($products as $product)

@@ -28,12 +28,12 @@ class CartController extends Controller
         });
 
         if ($duplicates->isNotEmpty()) {
-            return back()->with('success', 'Item is already in your cart!');
+            return back()->with('success', 'Accessory is already in your cart!!');
         }
 
         Cart::add($request->id, $request->name, 1, $request->price)->associate(Product::class);
 
-        return back()->with('success', 'Added to cart');
+        return back()->with('success', 'Accessory added to cart!!');
     }
 
     public function updateCart(Request $request, $id)
@@ -46,13 +46,13 @@ class CartController extends Controller
     {
         Cart::remove($id);
 
-        return redirect()->route('cart');
+        return redirect()->route('cart')->with('error', 'Accessory removed from cart!!');
     }
 
     public function clearAllCart()
     {
         Cart::destroy();
 
-        return redirect()->route('cart');
+        return redirect()->route('cart')->with('error', 'Cart cleared!!');
     }
 }

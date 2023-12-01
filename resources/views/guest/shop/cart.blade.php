@@ -17,6 +17,7 @@
     </section>
     
     <div class="flex flex-col bg-neutral-color py-4 mx-8 w-auto min-h-screen">
+      @include('includes.messages')
   
       <div class="flex justify-center items-center bg-white shadow-md p-4 rounded-lg my-4">
        

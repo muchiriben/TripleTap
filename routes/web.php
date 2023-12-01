@@ -66,14 +66,28 @@ Route::get('/shop/{id}', [ShopController::class, 'subcategory'])->name('subcateg
 Route::get('/shop/accessories/{id}', [ShopController::class, 'accessories'])->name('accessories');
 Route::get('/shop/manufacturer/accessories/{id}', [ShopController::class, 'accessoriesbymanufacturer'])->name('accessoriesbymanufacturer');
 Route::post('/search', [ShopController::class, 'search'])->name('search');
+
+//courses
 Route::get('/courses', [CourseandEventController::class, 'courses'])->name('courses');
-Route::get('/courses/register/{id}', [CourseandEventController::class, 'courses_registration'])->name('courses.register');
+Route::get('/courses/register/individual/{id}', [CourseandEventController::class, 'courses_registration_individual'])->name('courses.register.individual');
+Route::get('/courses/register/group/{id}', [CourseandEventController::class, 'courses_registration_group'])->name('courses.register.group');
 Route::post('/courses/store/individual', [CourseandEventController::class, 'courses_store_individual'])->name('courses.store.individual');
 Route::post('/courses/store/group', [CourseandEventController::class, 'courses_store_group'])->name('courses.store.group');
-Route::get('/events', [CourseandEventController::class, 'events'])->name('events');
-Route::get('/events/register/{id}', [CourseandEventController::class, 'events_registration'])->name('events.register');
-Route::post('/events/store', [CourseandEventController::class, 'events_store'])->name('events.store');
+//confirmation
+Route::get('/course/registration/confirmation', function () {
+    return view('guest.courses.confirmation');
+})->name('courses.confirm');
 
+//events
+Route::get('/events', [CourseandEventController::class, 'events'])->name('events');
+Route::get('/events/register/individual/{id}', [CourseandEventController::class, 'events_registration_individual'])->name('events.register.individual');
+Route::get('/events/register/group/{id}', [CourseandEventController::class, 'events_registration_group'])->name('events.register.group');
+Route::post('/events/store/individual', [CourseandEventController::class, 'events_store_individual'])->name('events.store.individual');
+Route::post('/events/store/group', [CourseandEventController::class, 'events_store_group'])->name('events.store.group');
+//confirmation
+Route::get('/event/registration/confirmation', function () {
+    return view('guest.events.confirmation');
+})->name('events.confirm');
 
 //cart
 Route::get('/cart', [CartController::class, 'cart'])->name('cart');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use App\Models\Event;
 use Illuminate\Http\Request;
 
@@ -37,26 +38,20 @@ class EventController extends Controller
         ]);
 
         //handle if uploaded
-        //get filename with extension
-        $fileNameWithExt = $request->file('thumbnail')->getClientOriginalName();
-        //get just filename
-        $filename  = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-        //get just ext
-        $extension = $request->file('thumbnail')->getClientOriginalExtension();
-        //filename to store
-        $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-        // upload image
-        $path = $request->file('thumbnail')->storeAs('public/events/thumbnails', $fileNameToStore);
+        if ($request->hasFile('thumbnail')) {
+            // Upload an thumbnail File to Cloudinary 
+            $uploadedFileUrl = Cloudinary::upload($request->file('thumbnail')->getRealPath(), ['folder' => 'courses_thumbnails'])->getSecurePath();
+        }
 
         $event = Event::create([
             'title' => $request->title,
             'price' => $request->price,
             'description' => $request->description,
-            'thumbnail' => $fileNameToStore,
+            'thumbnail' => $uploadedFileUrl,
         ]);
 
 
-        return redirect()->route('admin.events.index');
+        return redirect()->route('admin.events.create')->with('success', 'Event created successfully');
     }
 
     /**

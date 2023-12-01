@@ -16,10 +16,16 @@ class CourseandEventController extends Controller
         return view('guest.courses.view')->with('courses', $courses);
     }
 
-    public function courses_registration($id)
+    public function courses_registration_individual($id)
     {
         $course = Course::findorfail($id);
-        return view('guest.courses.register')->with('course', $course);
+        return view('guest.courses.register_individual')->with('course', $course);
+    }
+
+    public function courses_registration_group($id)
+    {
+        $course = Course::findorfail($id);
+        return view('guest.courses.register_group')->with('course', $course);
     }
 
     public function courses_store_individual(Request $request)
@@ -42,15 +48,41 @@ class CourseandEventController extends Controller
             'individual_national_id' => $request->individual_national_id,
             'individual_location' => $request->individual_location,
             'individual_proffession' => $request->individual_proffession,
+            'group_no' => 1,
             'agreement' => $request->agreement,
             'payment_status' => 'Pending',
         ]);
-        return redirect()->route('courses')->with('succcess', 'Registration Successfull');
+        return redirect()->route('courses.confirm')->with('succcess', 'Registration Successfull');
     }
 
     public function courses_store_group(Request $request)
     {
-        //
+        $request->validate([
+            'leader_name' => ['required', 'string', 'max:255'],
+            'leader_phone' => ['required', 'string'],
+            'leader_national_id' => ['required', 'integer'],
+            'leader_location' => ['required', 'string', 'max:255'],
+            'group_relation' => ['required', 'string', 'max:255'],
+            'group_no' => ['required', 'integer'],
+            'from_age' => ['required', 'integer'],
+            'to_age' => ['required', 'integer'],
+            'agreement' => ['required', 'string'],
+        ]);
+
+        CourseRegistration::create([
+            'course_id' => $request->course_id,
+            'leader_name' => $request->leader_name,
+            'leader_phone' => $request->leader_phone,
+            'leader_national_id' => $request->leader_national_id,
+            'leader_location' => $request->leader_location,
+            'group_relation' => $request->group_relation,
+            'from_age' => $request->from_age,
+            'to_age' => $request->to_age,
+            'group_no' => $request->group_no,
+            'agreement' => $request->agreement,
+            'payment_status' => 'Pending',
+        ]);
+        return redirect()->route('courses.confirm')->with('succcess', 'Registration Successfull!!');
     }
 
     public function events()
@@ -59,27 +91,72 @@ class CourseandEventController extends Controller
         return view('guest.events.view')->with('events', $events);
     }
 
-    public function events_registration($id)
+    public function events_registration_individual($id)
     {
         $event = Event::findorfail($id);
-        return view('guest.events.register')->with('event', $event);
+        return view('guest.events.register_individual')->with('event', $event);
     }
 
-    public function events_store(Request $request)
+    public function events_registration_group($id)
+    {
+        $event = Event::findorfail($id);
+        return view('guest.events.register_group')->with('event', $event);
+    }
+
+    public function events_store_individual(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255'],
-            'mpesa_code' => ['required', 'string', 'max:255'],
+            'individual_name' => ['required', 'string', 'max:255'],
+            'individual_age' => ['required', 'integer'],
+            'individual_phone' => ['required', 'string'],
+            'individual_national_id' => ['required', 'integer'],
+            'individual_location' => ['required', 'string', 'max:255'],
+            'individual_proffession' => ['required', 'string', 'max:255'],
+            'agreement' => ['required', 'string'],
         ]);
 
         EventRegistration::create([
             'event_id' => $request->event_id,
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'mpesa_code' => $request->mpesa_code,
-            'payment_status' => 'Pending Confirmation',
+            'individual_name' => $request->individual_name,
+            'individual_age' => $request->individual_age,
+            'individual_phone' => $request->individual_phone,
+            'individual_national_id' => $request->individual_national_id,
+            'individual_location' => $request->individual_location,
+            'individual_proffession' => $request->individual_proffession,
+            'group_no' => 1,
+            'agreement' => $request->agreement,
+            'payment_status' => 'Pending',
         ]);
-        return redirect()->route('events')->with('succcess', 'Registration Successfull');
+        return redirect()->route('events.confirm')->with('succcess', 'Registration Successfull!!');
+    }
+
+    public function events_store_group(Request $request)
+    {
+        $request->validate([
+            'leader_name' => ['required', 'string', 'max:255'],
+            'leader_phone' => ['required', 'string'],
+            'leader_national_id' => ['required', 'integer'],
+            'leader_location' => ['required', 'string', 'max:255'],
+            'group_relation' => ['required', 'string', 'max:255'],
+            'group_no' => ['required', 'integer'],
+            'from_age' => ['required', 'integer'],
+            'to_age' => ['required', 'integer'],
+            'agreement' => ['required', 'string'],
+        ]);
+
+        EventRegistration::create([
+            'event_id' => $request->event_id,
+            'leader_name' => $request->leader_name,
+            'leader_phone' => $request->leader_phone,
+            'leader_national_id' => $request->leader_national_id,
+            'leader_location' => $request->leader_location,
+            'group_relation' => $request->group_relation,
+            'from_age' => $request->from_age,
+            'to_age' => $request->to_age,
+            'group_no' => $request->group_no,
+            'agreement' => $request->agreement,
+            'payment_status' => 'Pending',
+        ]);
+        return redirect()->route('events.confirm')->with('succcess', 'Registration Successfull!!');
     }
 }

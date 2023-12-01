@@ -29,6 +29,7 @@
 
             <!-- Page Content -->
             <main>
+                @include('includes.messages')
                 {{ $slot }}
             </main>
         </div>
