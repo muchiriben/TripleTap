@@ -12,7 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/scss/main.scss', 'resources/scss/nav.scss', 'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/scss/main.scss', 'resources/scss/nav.scss', 'resources/scss/gallery.scss', 'resources/scss/lightbox.scss', 'resources/js/app.js', 'resources/js/lightbox-plus-jquery.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <header>
@@ -26,8 +26,8 @@
                     <li><a href="/courses">Courses</a></li>
                     <li><a href="/events">Events</a></li>
                     <li><a href="/#contact-us">Contact Us</a></li>
-                    <li><a href="/gallery.html">Gallery</a></li>
-                    <li><a href="/l">Storage</a></li><br>
+                    <li><a href="/gallery">Gallery</a></li>
+                    <li><a href="/">Storage</a></li><br>
                 </ul> 
                 <div class="nav-cta">
                     <a href="/shop"><button>

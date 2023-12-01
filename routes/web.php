@@ -14,6 +14,7 @@ use App\Http\Controllers\ManufacturerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\FindSubcategoriesController;
+use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +56,8 @@ Route::group([
     Route::resource('subcategories', SubCategoryController::class);
     Route::resource('products', ProductController::class);
     Route::get('/findsubcategories/{id}', [FindSubcategoriesController::class, 'findsubcategories'])->name('findsubcategories');
+    Route::get('/gallery/create', [GalleryController::class, 'create'])->name('gallery.create');
+    Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
 });
 
 Route::resource('message', MessageController::class);
@@ -66,6 +69,10 @@ Route::get('/shop/{id}', [ShopController::class, 'subcategory'])->name('subcateg
 Route::get('/shop/accessories/{id}', [ShopController::class, 'accessories'])->name('accessories');
 Route::get('/shop/manufacturer/accessories/{id}', [ShopController::class, 'accessoriesbymanufacturer'])->name('accessoriesbymanufacturer');
 Route::post('/search', [ShopController::class, 'search'])->name('search');
+
+//gallery
+Route::get('/gallery', [GalleryController::class, 'gallery'])->name('gallery');
+
 
 //courses
 Route::get('/courses', [CourseandEventController::class, 'courses'])->name('courses');
