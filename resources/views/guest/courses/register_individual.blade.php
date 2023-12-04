@@ -24,7 +24,7 @@
         </select>
 
         <fieldset id="individual_form" class="flex flex-col items-start w-full p-4 border-2 border-secondary-color rounded-md mt-4">
-            <legend class="px-2">Individual Registration:</legend>
+            <legend class="px-2 font-bold">Individual Registration:</legend>
             <form id="individual-form" class="w-full" method="POST" action="{{ route('courses.store.individual') }}">
                 @csrf
                     <x-text-input id="course_id" type="hidden" name="course_id" value="{{$course->id}}"/> 
@@ -75,7 +75,7 @@
                         <label
                           class="inline-block pl-[0.15rem] hover:cursor-pointer"
                           for="agreement">
-                          Agreement will be here
+                          By checking the provided checkbox, you acknowledge that the information provided is accurate and true at the time of application. However, you understand and agree that Triple Tap Limited assumes no responsibility or liability for the accuracy, completeness, or reliability of the information or any any consequences resulting from this inaccuracies.
                         </label>
                       </div>
 

@@ -15,6 +15,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\FindSubcategoriesController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\StorageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,6 +59,8 @@ Route::group([
     Route::get('/findsubcategories/{id}', [FindSubcategoriesController::class, 'findsubcategories'])->name('findsubcategories');
     Route::get('/gallery/create', [GalleryController::class, 'create'])->name('gallery.create');
     Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
+    Route::get('/storage', [StorageController::class, 'view'])->name('storage.view');
+    Route::patch('/storage/{id}', [StorageController::class, 'update'])->name('storage.update');
 });
 
 Route::resource('message', MessageController::class);
@@ -72,6 +75,14 @@ Route::post('/search', [ShopController::class, 'search'])->name('search');
 
 //gallery
 Route::get('/gallery', [GalleryController::class, 'gallery'])->name('gallery');
+
+//storage
+Route::get('/storage', [StorageController::class, 'storage'])->name('storage');
+Route::post('/storage/store', [StorageController::class, 'storage_store'])->name('storage.store');
+//confirmation
+Route::get('/storage/confirmation', function () {
+    return view('guest.storage.confirmation');
+})->name('storage.confirm');
 
 
 //courses
