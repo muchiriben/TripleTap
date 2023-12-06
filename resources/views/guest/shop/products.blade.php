@@ -59,6 +59,10 @@
                      <div class="flex flex-col">
                         <h2 class="font-bold text-lg lg:text-base">KSh {{ $product->price }}</h2>
                         <h2 class="font-bold text-lg lg:text-base">{{ $product->name }}</h2>
+                        @if ($product->quantity == 0)
+                          <h2 class="font-bold text-md lg:text-base text-red-500">(Out of Stock)
+                          </h2>
+                        @endif
                      </div>
                      <div class="flex justify-center items-center p-2">
                         <form action="{{ route('cart.store') }}" method="POST">

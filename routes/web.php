@@ -16,6 +16,7 @@ use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\FindSubcategoriesController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\StorageController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,9 +34,7 @@ Route::get('/', function () {
     return view('guest.index');
 })->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -63,7 +62,7 @@ Route::group([
     Route::patch('/storage/{id}', [StorageController::class, 'update'])->name('storage.update');
 });
 
-Route::resource('message', MessageController::class);
+//Route::resource('message', MessageController::class);
 
 //guest
 Route::resource('checkout', CheckoutController::class);

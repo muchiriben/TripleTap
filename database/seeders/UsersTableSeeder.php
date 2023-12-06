@@ -25,8 +25,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $client = User::create([
-            'fname' => 'Dummy',
-            'lname' => 'Client',
+            'name' => 'Dummy Client',
             'email' => 'benthegreatonline@gmail.com',
             'password' => Hash::make('@TripleTap2023*'),
         ]);

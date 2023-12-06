@@ -100,7 +100,7 @@
         </div>
 
         <div id="deposit">
-            <form method="POST" action="{{ route('admin.storage.update') }}">
+            <form method="POST" action="{{ route('admin.storage.update', $application->id) }}">
                 @csrf
 
                 <!-- actual_deposit_date -->

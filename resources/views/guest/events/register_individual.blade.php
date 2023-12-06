@@ -23,7 +23,18 @@
             <option value="group">Group Registration</option>
         </select>
 
-        <fieldset id="individual_form" class="flex flex-col items-start w-full p-4 border-2 border-secondary-color rounded-md mt-4">
+        <div class="flex flex-col sm:flex-row items-start justify-center p-4">
+
+            <div class="w-full sm:w-1/3 p-4">
+                <div class="rounded-lg">
+                    <img class="rounded-lg" src="{{$event->thumbnail}}" alt="">
+                </div>
+                <h1 class="font-bold text-lg mt-2">About the event</h1>
+                <p class="text-secondary-color">{{ $event->description }}</p>
+                <p class="mt-2 font-bold text-lg"><span class="text-primary-color">Price per person:</span> Ksh {{ $event->price }}/-</p>
+            </div>   
+
+        <fieldset id="individual_form" class="flex flex-col items-start w-full sm:w-2/3 p-4 border-2 border-secondary-color rounded-md mt-4">
             <legend class="px-2 font-bold">Individual Registration:</legend>
             <form id="individual-form" class="w-full" method="POST" action="{{ route('events.store.individual') }}">
                 @csrf
@@ -86,6 +97,7 @@
                     </div> 
             </form>                     
         </fieldset>
+        </div>
     </div>    
     </section>
 

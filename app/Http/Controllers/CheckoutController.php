@@ -61,6 +61,10 @@ class CheckoutController extends Controller
                     'unit_price' => $item->model->price,
                     'total_price' => $item->model->price * $item->qty,
                 ]);
+
+                $product = Product::find($item->model->id);
+                $product->quantity = $product->quantity - $item->qty;
+                $product->save();
             }
 
             //destroy cart

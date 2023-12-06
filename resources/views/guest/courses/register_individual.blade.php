@@ -16,14 +16,25 @@
         <h1 class="font-bold text-center text-xl my-2">{{ $course->name }}</h1>
         <div hidden id="course_id">{{$course->id}}</div>
 
-        <div class="max-w-7lx h-5/6 w-full py-12 px-2 m-4 bg-light-color shadow-xl sm:px-8 lg:px-12">    
+        <div class="max-w-7lx h-5/6 w-full py-4 px-2 m-4 bg-light-color shadow-xl sm:px-8 lg:px-12">    
 
         <select name="type" id="type" class= "block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
             <option value="individual">Individual Registration</option>
             <option value="group">Group Registration</option>
         </select>
 
-        <fieldset id="individual_form" class="flex flex-col items-start w-full p-4 border-2 border-secondary-color rounded-md mt-4">
+        <div class="flex flex-col sm:flex-row  items-start justify-center p-4">
+
+        <div class="w-full sm:w-1/3 p-4">
+            <div class="rounded-lg">
+                <img class="rounded-lg" src="{{$course->thumbnail}}" alt="">
+            </div>
+            <h1 class="font-bold text-lg mt-2">About the Course</h1>
+            <p class="text-secondary-color">{{ $course->description }}</p>
+            <p class="mt-2 font-bold text-lg"><span class="text-primary-color">Price per person:</span> Ksh {{ $course->price }}/-</p>
+        </div>   
+
+        <fieldset id="individual_form" class="flex flex-col items-start w-full sm:w-2/3 p-4 border-2 border-secondary-color rounded-md mt-4">
             <legend class="px-2 font-bold">Individual Registration:</legend>
             <form id="individual-form" class="w-full" method="POST" action="{{ route('courses.store.individual') }}">
                 @csrf
@@ -86,6 +97,7 @@
                     </div> 
             </form>                     
         </fieldset>
+        </div>
     </div>    
     </section>
 
