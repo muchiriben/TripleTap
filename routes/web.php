@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
-    'middleware' => ['auth']
+    'middleware' => ['auth', 'admin']
 ], function () {
     Route::resource('courses', CourseController::class);
     Route::resource('events', EventController::class);
@@ -72,6 +72,8 @@ Route::get('/shop/{id}', [ShopController::class, 'subcategory'])->name('subcateg
 Route::get('/shop/accessories/{id}', [ShopController::class, 'accessories'])->name('accessories');
 Route::get('/shop/manufacturer/accessories/{id}', [ShopController::class, 'accessoriesbymanufacturer'])->name('accessoriesbymanufacturer');
 Route::post('/search', [ShopController::class, 'search'])->name('search');
+Route::get('/search/{q}', [ShopController::class, 'search_result'])->name('search.result');
+
 
 //gallery
 Route::get('/gallery', [GalleryController::class, 'gallery'])->name('gallery');

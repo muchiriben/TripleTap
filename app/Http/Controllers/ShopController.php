@@ -61,8 +61,14 @@ class ShopController extends Controller
 
     public function search(Request $request)
     {
-        $manufacturers = Manufacturer::all();
         $search_name = $request->search;
+
+        return redirect()->route('search.result', $search_name);
+    }
+
+    public function search_result($search_name)
+    {
+        $manufacturers = Manufacturer::all();
         $products = Product::where('name', 'LIKE', '%' . $search_name . '%')->get();
 
         return view('guest.shop.product-search')->with([

@@ -86,7 +86,7 @@
                               </x-secondary-button>
                               </td>
                             <td class="py-1 px-6 text-sm font-medium text-right whitespace-nowrap">
-                              <x-secondary-button class="gradient" :href=" route('admin.storage.update', $application->id)">
+                            <x-secondary-button class="gradient" :href=" route('admin.storage.update', $application->id)">
                                 {{ __('Set Collection Date') }}
                             </x-secondary-button>
                             </td>
