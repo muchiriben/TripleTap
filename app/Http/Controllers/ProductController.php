@@ -16,9 +16,15 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $manufacturers = Manufacturer::all();
+        $subcategories = SubCategory::all();
         $products = Product::all();
 
-        return view('admin.products.view')->with('products', $products);
+        return view('admin.products.view')->with([
+            'products' => $products,
+            'manufacturers' => $manufacturers,
+            'subcategories' => $subcategories,
+        ]);
     }
 
     /**
@@ -48,13 +54,14 @@ class ProductController extends Controller
             'selling_price' => ['required', 'integer'],
             'quantity' => ['required', 'integer'],
             'description' => ['required', 'string'],
-            'image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:6048'],
+            'image' => ['image', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
 
         //handle if uploaded
         if ($request->hasFile('image')) {
             // Upload an Image File to Cloudinary 
             $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), ['folder' => 'accessories_images'])->getSecurePath();
+            $imageId = Cloudinary::getPublicId();
         }
 
         $product = Product::create([
@@ -66,10 +73,11 @@ class ProductController extends Controller
             'quantity' => $request->quantity,
             'description' => $request->description,
             'image' => $uploadedFileUrl,
+            'imageId' => $imageId,
         ]);
 
 
-        return redirect()->route('admin.products.create')->with('success', 'New product added');
+        return redirect()->route('admin.products.create')->with('success', 'New Product/Accessory added!!');
     }
 
     /**
@@ -85,26 +93,48 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        $manufacturers = Manufacturer::orderBy('name', 'asc')->get();
+        $categories = Category::orderBy('name', 'asc')->get();
+        $subcategories = subcategory::orderBy('name', 'asc')->get();
+
+        $manufacturer = Manufacturer::findorfail($product->manufacturer_id);
+        $subcategory = SubCategory::findorfail($product->subcategory_id);
+        $category = Category::findorfail($subcategory->category_id);
 
         return view('admin.products.edit')
             ->with([
                 'product' => $product,
+                'manufacturers' => $manufacturers,
+                'categories' => $categories,
+                'subcategories' => $subcategories,
+                'manufacturer' => $manufacturer,
+                'category' => $category,
+                'subcategory' => $subcategory,
             ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $product_id)
     {
+        $product = Product::findorfail($product_id);
         //handle if uploaded
         if ($request->hasFile('image')) {
 
             // Upload an Image File to Cloudinary 
             $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), ['folder' => 'accessories_images'])->getSecurePath();
 
+            $imageId = Cloudinary::getPublicId();
+
             //update
             $product->image = $uploadedFileUrl;
+            $product->imageId = $imageId;
+            //delete previous
+            Cloudinary::destroy($request->old_imageId);
+        } else {
+            $product->image = $request->old_image;
+            $product->imageId = $request->old_imageId;
         }
 
         $product->name = $request->name;
@@ -114,7 +144,7 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->save();
 
-        return redirect()->route('products.index');
+        return redirect()->route('admin.products.index')->with('success', 'Accessory/Product Updated!!');
     }
 
     /**
@@ -122,12 +152,12 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        if ($product->imageID != NULL) {
+        if ($product->image != NULL) {
             //delete previous
-            Cloudinary::destroy($product->imageID);
+            Cloudinary::destroy($product->imageId);
         }
 
         $product->delete();
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.products.index')->with('error', 'Accessory/Product Deleted!!');
     }
 }

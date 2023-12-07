@@ -11,5 +11,6 @@ class Gallery extends Model
 
     protected $fillable = [
         'image',
+        'imageId',
     ];
 }

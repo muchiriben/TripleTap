@@ -21,6 +21,7 @@ return new class extends Migration
             $table->longText('description');
             $table->integer('quantity');
             $table->string('image');
+            $table->string('imageId');
             $table->timestamps();
         });
     }

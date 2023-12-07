@@ -55,21 +55,21 @@
             <div class="mt-4">
                 <x-input-label for="purchase_price" :value="__('Purchase Price')" />
 
-                <x-text-input id="purchase_price" class="block mt-1 w-full" type="text" name="purchase_price" :value="old('purchase_price')" required />
+                <x-text-input id="purchase_price" class="block mt-1 w-full" type="number" name="purchase_price" :value="old('purchase_price')" required />
             </div>
 
             <!-- Selling Price -->
             <div class="mt-4">
                 <x-input-label for="selling_price" :value="__('Selling Price')" />
 
-                <x-text-input id="selling_price" class="block mt-1 w-full" type="text" name="selling_price" :value="old('selling_price')" required />
+                <x-text-input id="selling_price" class="block mt-1 w-full" type="number" name="selling_price" :value="old('selling_price')" required />
             </div>
 
             <!-- quantity -->
             <div class="mt-4">
                 <x-input-label for="quantity" :value="__('Quantity')" />
 
-                <x-text-input id="quantity" class="block mt-1 w-full" type="text" name="quantity" :value="old('quantity')" required />
+                <x-text-input id="quantity" class="block mt-1 w-full" type="number" name="quantity" :value="old('quantity')" required />
             </div>
 
              <!-- Product image -->

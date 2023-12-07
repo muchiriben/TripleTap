@@ -12,7 +12,7 @@ class ManufacturerController extends Controller
      */
     public function index()
     {
-        $manufacturers = Manufacturer::all();
+        $manufacturers = Manufacturer::paginate(10);
 
         return view('admin.manufacturers.view')->with('manufacturers', $manufacturers);
     }
@@ -68,7 +68,7 @@ class ManufacturerController extends Controller
         $manufacturer->name = $request->name;
         $manufacturer->save();
 
-        return redirect()->route('admin.manufacturers.index');
+        return redirect()->route('admin.manufacturers.index')->with('success', 'Manufacturer Updated!!');
     }
 
     /**
@@ -77,6 +77,6 @@ class ManufacturerController extends Controller
     public function destroy(Manufacturer $manufacturer)
     {
         $manufacturer->delete();
-        return redirect()->route('admin.manufacturers.index');
+        return redirect()->route('admin.manufacturers.index')->with('error', 'Manufacturer deleted!!');
     }
 }

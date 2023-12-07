@@ -58,8 +58,8 @@ class CheckoutController extends Controller
                     'product_name' => $item->model->name,
                     'product_id' => $item->model->id,
                     'quantity' => $item->qty,
-                    'unit_price' => $item->model->price,
-                    'total_price' => $item->model->price * $item->qty,
+                    'unit_price' => $item->model->selling_price,
+                    'total_price' => $item->model->selling_price * $item->qty,
                 ]);
 
                 $product = Product::find($item->model->id);

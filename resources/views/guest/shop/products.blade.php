@@ -57,7 +57,7 @@
                    </div>
                    <div class="flex flex-row justify-between m-2 h-1/5 px-2 w-full">
                      <div class="flex flex-col">
-                        <h2 class="font-bold text-lg lg:text-base">KSh {{ $product->price }}</h2>
+                        <h2 class="font-bold text-lg lg:text-base">KSh {{ $product->selling_price }}</h2>
                         <h2 class="font-bold text-lg lg:text-base">{{ $product->name }}</h2>
                         @if ($product->quantity == 0)
                           <h2 class="font-bold text-md lg:text-base text-red-500">(Out of Stock)
@@ -69,7 +69,8 @@
                             @csrf
                             <x-text-input type="hidden" name="id" value="{{ $product->id }}"/>
                             <x-text-input type="hidden" name="name" value="{{ $product->name }}"/>
-                            <x-text-input type="hidden" name="price" value="{{ $product->price }}"/>
+                            <x-text-input type="hidden" name="quantity" value="{{ $product->quantity }}"/> 
+                            <x-text-input type="hidden" name="price" value="{{ $product->selling_price }}"/>
                             <x-primary-button class="bg-secondary-color shadow-md rounded-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 lg:h-8 lg:w-8" fill="none" viewBox="0 0 24 24" stroke="#F2F7FF" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /> 

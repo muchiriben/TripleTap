@@ -60,9 +60,12 @@ Route::group([
     Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
     Route::get('/storage', [StorageController::class, 'view'])->name('storage.view');
     Route::patch('/storage/{id}', [StorageController::class, 'update'])->name('storage.update');
+    Route::get('/messages', [MessageController::class, 'messages'])->name('messages');
 });
 
-//Route::resource('message', MessageController::class);
+//messages
+Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
+
 
 //guest
 Route::resource('checkout', CheckoutController::class);

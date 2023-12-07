@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::paginate(10);
 
         return view('admin.categories.view')->with('categories', $categories);
     }
@@ -33,18 +33,20 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:5048'],
+            'image' => ['image', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
 
         //handle if uploaded
         if ($request->hasFile('image')) {
             // Upload an Image File to Cloudinary 
             $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), ['folder' => 'category_images'])->getSecurePath();
+            $imageId = Cloudinary::getPublicId();
         }
 
         $category = category::create([
             'name' => $request->name,
             'image' => $uploadedFileUrl,
+            'imageId' => $imageId,
         ]);
 
 
@@ -74,21 +76,30 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $category_id)
     {
+        $category = Category::findorfail($category_id);
         if ($request->hasFile('image')) {
 
             // Upload an Image File to Cloudinary 
             $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), ['folder' => 'category_images'])->getSecurePath();
 
+            $imageId = Cloudinary::getPublicId();
+
             //update
             $category->image = $uploadedFileUrl;
+            $category->imageId = $imageId;
+            //delete previous
+            Cloudinary::destroy($request->old_imageId);
+        } else {
+            $category->image = $request->old_image;
+            $category->imageId = $request->old_imageId;
         }
 
         $category->name = $request->name;
         $category->save();
 
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index')->with('success', 'Category Updated');
     }
 
     /**
@@ -96,12 +107,12 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        if ($category->imageID != NULL) {
+        if ($category->image != NULL) {
             //delete previous
-            Cloudinary::destroy($category->imageID);
+            Cloudinary::destroy($category->imageId);
         }
 
         $category->delete();
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index')->with('error', 'Category Deleted!!');
     }
 }

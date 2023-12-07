@@ -78,13 +78,13 @@
                 <span class="font-bold text-xs text-gray-700 uppercase sm:hidden absolute top-0 inset-x-0 p-1 bg-primary-color pl-2">
                   Product Price
                 </span>
-                {{ $item->model->price }}            
+                {{ $item->model->selling_price }}            
               </td>
               <td class="pl-4 sm:pl-0 pt-8 sm:pt-0 pb-2 sm:text-center text-left text-gray-800 relative w-2/4 border-t border-l border-r sm:border-l-0 sm:border-r-0 border-gray-400">
                 <span class="font-bold text-xs text-gray-700 uppercase sm:hidden absolute top-0 inset-x-0 p-1 bg-primary-color pl-2">
                   Quantity
                 </span>
-                <select class="quantity" data-id="{{ $item->rowId }}" data-price="{{$item->model->price}}" data-productQuantity="{{ $item->model->quantity }}">
+                <select class="quantity" data-id="{{ $item->rowId }}" data-price="{{$item->model->selling_price}}" data-productQuantity="{{ $item->model->quantity }}">
                   @for ($i = 1; $i < 5 + 1 ; $i++)
                       <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
                   @endfor
@@ -94,7 +94,7 @@
                 <span class="font-bold text-xs text-gray-700 uppercase sm:hidden absolute top-0 inset-x-0 p-1 bg-primary-color pl-2">
                   Total Price
                 </span>
-                Ksh {{ $item->model->price * $item->qty}}
+                Ksh {{ $item->model->selling_price * $item->qty}}
               </td>
               <td class="px-4 pt-8 sm:pt-0 pb-2 text-left text-gray-800 relative w-2/4 border sm:border-0 sm:border-t border-gray-400">
                 <span class="font-bold text-xs text-gray-700 uppercase sm:hidden absolute top-0 inset-x-0 p-1 bg-primary-color pl-2">
@@ -164,17 +164,17 @@
                   </div>
                 </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-black">Ksh {{ $item->model->price }} /=</div>
+                  <div class="text-sm text-black">Ksh {{ $item->model->selling_price }} /=</div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <select class="quantity" data-id="{{ $item->rowId }}" data-price="{{$item->model->price}}" data-productQuantity="{{ $item->model->quantity }}">
+                <select class="quantity" data-id="{{ $item->rowId }}" data-price="{{$item->model->selling_price}}" data-productQuantity="{{ $item->model->quantity }}">
                   @for ($i = 1; $i < 100 + 1 ; $i++)
                       <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
                   @endfor
               </select>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-black">Ksh {{ $item->model->price * $item->qty}} /=</div>
+                  <div class="text-sm text-black">Ksh {{ $item->model->selling_price * $item->qty}} /=</div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
                   <form action="{{ route('cart.remove',  $item->rowId) }}" method="POST">

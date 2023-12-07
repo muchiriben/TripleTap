@@ -28,6 +28,7 @@
                   <h1 class="font-semibold capitalize text-base sm:text-lg mb-2 text-accent-color">Billing Details.</h1>
                   <span class="text-primary-color font-semibold">Payment through Mpesa: Buy Goods & Services</span>
                   <span class="text-primary-color font-semibold">Till Number: 123456</span>
+                  <span class="text-primary-color font-semibold">Total to be paid: <span class="text-accent-color font-bold" >{{ Cart::instance('default')->subtotal(0) }} /=</span></span>
   
               <!-- mpesa code -->
               <div class="mt-4">

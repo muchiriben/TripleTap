@@ -23,17 +23,21 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
-        $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
-            return $cartItem->id === $request->id;
-        });
+        if ($request->quantity == 0) {
+            return back()->with('error', 'Accessory is out of stock!!');
+        } else {
+            $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
+                return $cartItem->id === $request->id;
+            });
 
-        if ($duplicates->isNotEmpty()) {
-            return back()->with('success', 'Accessory is already in your cart!!');
+            if ($duplicates->isNotEmpty()) {
+                return back()->with('success', 'Accessory is already in your cart!!');
+            }
+
+            Cart::add($request->id, $request->name, 1, $request->price)->associate(Product::class);
+
+            return back()->with('success', 'Accessory added to cart!!');
         }
-
-        Cart::add($request->id, $request->name, 1, $request->price)->associate(Product::class);
-
-        return back()->with('success', 'Accessory added to cart!!');
     }
 
     public function updateCart(Request $request, $id)

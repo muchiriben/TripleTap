@@ -14,5 +14,6 @@ class Event extends Model
         'price',
         'description',
         'thumbnail',
+        'imageId',
     ];
 }

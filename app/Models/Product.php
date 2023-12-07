@@ -15,6 +15,7 @@ class Product extends Model
         'selling_price',
         'quantity',
         'image',
+        'imageId',
         'description',
         'manufacturer_id',
         'subcategory_id',

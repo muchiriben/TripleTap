@@ -7,7 +7,7 @@
 
         <div class="max-w-7lx h-5/6 py-12 px-2 m-auto sm:px-8 lg:px-12">
             <div class="bg-white shadow-md w-full h-5/6 m-auto py-6 px-4 sm:px-6 lg:px-8 rounded-md">
-        <form method="POST" action="{{ route('admin.subcategories.update', $subCategory) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.subcategories.update', $subcategory->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
 
@@ -18,19 +18,26 @@
                 <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ $subcategory->name }}" required autofocus />
             </div>
 
-            <div>
-                <x-input-label for="category_id" :value="__('Category Name')" />
+             <!-- Category -->
+          <div class="mt-4">
+            <x-input-label for="category_id" :value="__('Category')" />
 
-                <x-text-input id="category_id" class="block mt-1 w-full" type="text" name="category_id" value="{{ $subcategory->category_id }}" required autofocus />
-            </div>
+            <select name="category_id" id="category_id" class= "block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
+              <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+          </div>
 
              <!-- subCategory image -->
              <div class="mt-4">
-                <x-input-label for="image" :value="__('Change Menu subCategory Image')" />
+                <x-input-label for="image" :value="__('SubCategory Image')" />
     
                 <x-text-input id="image" class="block mt-1 w-full" type="file" name="image" :value="old('image')" placeholder="subcategory Image" autofocus />
     
                 <x-text-input id="old_image" type="hidden" name="old_image" value="{{ $subcategory->image }}" autofocus />
+                <x-text-input id="old_imageId" type="hidden" name="old_imageId" value="{{ $subcategory->imageId }}" autofocus />    
             </div>
 
             <div class="flex items-center justify-end mt-4">
