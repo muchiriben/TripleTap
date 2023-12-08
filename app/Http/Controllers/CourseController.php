@@ -34,13 +34,14 @@ class CourseController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'price' => ['required', 'integer', 'numeric'],
             'description' => ['required', 'string'],
-            'thumbnail' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:6048'],
+            'thumbnail' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
 
         //handle if uploaded
         if ($request->hasFile('thumbnail')) {
             // Upload an thumbnail File to Cloudinary 
             $uploadedFileUrl = Cloudinary::upload($request->file('thumbnail')->getRealPath(), ['folder' => 'courses_thumbnails'])->getSecurePath();
+            $imageId = Cloudinary::getPublicId();
         }
 
         $course = Course::create([
@@ -48,10 +49,11 @@ class CourseController extends Controller
             'price' => $request->price,
             'description' => $request->description,
             'thumbnail' => $uploadedFileUrl,
+            'imageId' => $imageId,
         ]);
 
 
-        return redirect()->route('admin.courses.create');
+        return redirect()->route('admin.courses.create')->with('success', 'Course Created!!');
     }
 
     /**
@@ -73,9 +75,30 @@ class CourseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Course $course)
+    public function update(Request $request, $course_id)
     {
-        //
+        $course = Course::findorfail($course_id);
+        if ($request->hasFile('image')) {
+
+            // Upload an Image File to Cloudinary 
+            $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), ['folder' => 'category_images'])->getSecurePath();
+
+            $imageId = Cloudinary::getPublicId();
+
+            //update
+            $course->image = $uploadedFileUrl;
+            $course->imageId = $imageId;
+            //delete previous
+            Cloudinary::destroy($request->old_imageId);
+        } else {
+            $course->image = $request->old_image;
+            $course->imageId = $request->old_imageId;
+        }
+
+        $course->name = $request->name;
+        $course->save();
+
+        return redirect()->route('admin.categories.index')->with('success', 'Course Updated!!');
     }
 
     /**

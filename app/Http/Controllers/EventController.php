@@ -34,13 +34,14 @@ class EventController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'price' => ['required', 'integer', 'numeric'],
             'description' => ['required', 'string'],
-            'thumbnail' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:6048'],
+            'thumbnail' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
 
         //handle if uploaded
         if ($request->hasFile('thumbnail')) {
             // Upload an thumbnail File to Cloudinary 
             $uploadedFileUrl = Cloudinary::upload($request->file('thumbnail')->getRealPath(), ['folder' => 'courses_thumbnails'])->getSecurePath();
+            $imageId = Cloudinary::getPublicId();
         }
 
         $event = Event::create([
@@ -48,6 +49,7 @@ class EventController extends Controller
             'price' => $request->price,
             'description' => $request->description,
             'thumbnail' => $uploadedFileUrl,
+            'imageId' => $imageId,
         ]);
 
 

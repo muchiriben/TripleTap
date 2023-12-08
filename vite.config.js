@@ -11,7 +11,7 @@ export default defineConfig({
                 'resources/scss/nav.scss',
                 'resources/scss/gallery.scss',
                 'resources/scss/lightbox.scss',
-                'resources/js/anime.min.js',
+                //'resources/js/anime.min.js',
                 'resources/js/nav.js',
                 'resources/js/lightbox-plus-jquery.js',
             ],
