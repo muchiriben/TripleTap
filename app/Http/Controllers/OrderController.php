@@ -14,7 +14,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::orderBy('created_at')->paginate(50);
+        $orders = Order::orderBy('created_at')->paginate(15);
         return view('admin.orders.index')->with('orders', $orders);
     }
 

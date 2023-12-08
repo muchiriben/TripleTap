@@ -49,6 +49,7 @@ Route::group([
     'as' => 'admin.',
     'middleware' => ['auth', 'admin']
 ], function () {
+    Route::resource('orders', OrderController::class);
     Route::resource('courses', CourseController::class);
     Route::resource('events', EventController::class);
     Route::resource('manufacturers', ManufacturerController::class);

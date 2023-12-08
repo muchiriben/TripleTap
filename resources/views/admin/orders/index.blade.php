@@ -1,42 +1,43 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-accent-color leading-tight">
+        <h2 class="font-semibold text-xl text-secondary-color leading-tight">
             {{ __('Orders') }}
         </h2>
     </x-slot>
 
-    <div class="bg-white py-4">
+    <div class="py-12">
+      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+          
+          <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg overflow-x-auto">
 
-        <div class="flex flex-col mx-6 my-2">
-
-            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-              <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="mb-4 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                   <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-accent-color">
+                    <thead class="bg-secondary-color">
                       <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-primary-color uppercase tracking-wider">
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-light-color uppercase tracking-wider">
                           Id
                       </th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-primary-color uppercase tracking-wider">
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-light-color uppercase tracking-wider">
                         Customer Name
                       </th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-primary-color uppercase tracking-wider">
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-light-color uppercase tracking-wider">
                         Delivery Location
                       </th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-primary-color uppercase tracking-wider">
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-light-color uppercase tracking-wider">
                         Phone Number
                       </th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-primary-color uppercase tracking-wider">
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-light-color uppercase tracking-wider">
                         Total Price
                       </th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-primary-color uppercase tracking-wider">
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-light-color uppercase tracking-wider">
+                        Mpesa Code
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-light-color uppercase tracking-wider">
                         Notes
                       </th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-primary-color uppercase tracking-wider">
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-light-color uppercase tracking-wider">
                         Date
                       </th>
-                      <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-primary-color uppercase tracking-wider">
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-light-color uppercase tracking-wider">
                         Status
                        </th>
                         <th scope="col" class="relative px-6 py-3">
@@ -68,7 +69,10 @@
                       </td>
                       <td class="px-3 py-4 whitespace-nowrap">
                         <div class="text-sm text-black">KSh {{ $order->total }}</div>
-                    </td>
+                     </td>
+                     <td class="px-3 py-4 whitespace-nowrap">
+                      <div class="text-sm text-black font-bold">{{ $order->mpesa_code }}</div>
+                   </td>
                     <td class="px-3 py-4 whitespace-nowrap">
                       <div class="text-sm text-black break-all">{{ $order->notes }}</div>
                   </td>
@@ -87,14 +91,14 @@
 
                                 <x-text-input id="delivery_status" type="hidden" name="delivery_status" value="Delivered"/>
                                 <x-primary-button class=" bg-accent-color rounded-md text-neutral-color shadow-md cursor-pointer">
-                                  {{ __('Delivered') }}
+                                  {{ __('Set To Delivered') }}
                                </x-primary-button>
 
                                 @else
 
                                 <x-text-input id="delivery_status" type="hidden" name="delivery_status" value="Not Delivered"/>
                                 <x-primary-button class=" bg-accent-color rounded-md text-neutral-color shadow-md cursor-pointer">
-                                  {{ __('Not Delivered') }}
+                                  {{ __('Set To Not Delivered') }}
                                 </x-primary-button>
 
                                 @endif
@@ -110,14 +114,14 @@
 
                               <x-text-input id="delivery_status" type="hidden" name="delivery_status" value="Cancelled"/>
                               <x-primary-button class=" bg-accent-color rounded-md text-neutral-color shadow-md cursor-pointer">
-                                {{ __('Cancell') }}
+                                {{ __('Cancell Order') }}
                              </x-primary-button>
 
                               @else
 
                               <x-text-input id="delivery_status" type="hidden" name="delivery_status" value="Not Delivered"/>
                               <x-primary-button class=" bg-accent-color rounded-md text-neutral-color shadow-md cursor-pointer">
-                                {{ __('Uncancell') }}
+                                {{ __('Uncancell Order') }}
                               </x-primary-button>
 
                               @endif
@@ -135,12 +139,8 @@
                       <!-- More items... -->
                     </tbody>
                   </table>
-                </div>
-                {{ $orders->links()}}
-              </div>
-            </div>
-          </div>
-        
-      
-      </div>
+               </div>
+               {{ $orders->links() }}
+        </div>
+    </div>
 </x-app-layout>
