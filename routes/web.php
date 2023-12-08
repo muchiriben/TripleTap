@@ -7,7 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\MessageController;
+use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CourseandEventController;
 use App\Http\Controllers\ManufacturerController;
@@ -57,15 +57,17 @@ Route::group([
     Route::resource('subcategories', SubCategoryController::class);
     Route::resource('products', ProductController::class);
     Route::get('/findsubcategories/{id}', [FindSubcategoriesController::class, 'findsubcategories'])->name('findsubcategories');
+    Route::get('/gallery', [GalleryController::class, 'view'])->name('gallery');
     Route::get('/gallery/create', [GalleryController::class, 'create'])->name('gallery.create');
     Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
+    Route::get('/gallery/destroy/{image}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
     Route::get('/storage', [StorageController::class, 'view'])->name('storage.view');
     Route::patch('/storage/{id}', [StorageController::class, 'update'])->name('storage.update');
-    Route::get('/messages', [MessageController::class, 'messages'])->name('messages');
+    Route::get('/messages', [MessagesController::class, 'messages'])->name('messages');
 });
 
 //messages
-Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
+Route::post('/message/store', [MessagesController::class, 'store'])->name('message.store');
 
 
 //guest

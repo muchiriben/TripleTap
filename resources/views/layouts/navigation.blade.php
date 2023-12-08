@@ -36,6 +36,9 @@
                     <x-nav-link :href="route('admin.events.index')" :active="request()->routeIs('admin.events.index')">
                         {{ __('Events') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.gallery')" :active="request()->routeIs('admin.gallery')">
+                        {{ __('Gallery') }}
+                    </x-nav-link>
                 </div>
             </div>
 

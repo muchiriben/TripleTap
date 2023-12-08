@@ -25,12 +25,32 @@ class GalleryController extends Controller
 
             // Upload an Image File to Cloudinary 
             $uploadedFileUrl = Cloudinary::upload($image->getRealPath(), ['folder' => 'gallery'])->getSecurePath();
+            $imageId = Cloudinary::getPublicId();
 
             Gallery::create([
                 'image' => $uploadedFileUrl,
+                'imageId' => $imageId,
             ]);
         }
 
         return redirect()->route('admin.gallery.create')->with('success', 'New Image(s) added');
+    }
+
+    public function view()
+    {
+        $images = Gallery::orderBy('created_at', 'asc')->paginate(10);
+        return view('admin.gallery.view')->with('images', $images);
+    }
+
+    public function destroy($image_id)
+    {
+        $image = Gallery::findorfail($image_id);
+        if ($image->image != NULL) {
+            //delete previous
+            Cloudinary::destroy($image->imageId);
+        }
+
+        $image->delete();
+        return redirect()->route('admin.gallery')->with('error', 'Image Deleted!!');
     }
 }
