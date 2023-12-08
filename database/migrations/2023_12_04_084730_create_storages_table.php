@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('item_type');
             $table->string('model');
             $table->string('duration');
-            $table->dateTime('expected_deposit_date');
-            $table->dateTime('actual_deposit_date')->nullable();
-            $table->dateTime('actual_collection_date')->nullable();
+            $table->timestamp('expected_deposit_date');
+            $table->timestamp('actual_deposit_date')->nullable();
+            $table->timestamp('actual_collection_date')->nullable();
             $table->timestamps();
         });
     }

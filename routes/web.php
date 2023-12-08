@@ -61,8 +61,15 @@ Route::group([
     Route::get('/gallery/create', [GalleryController::class, 'create'])->name('gallery.create');
     Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');
     Route::get('/gallery/destroy/{image}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+
+    //storage
     Route::get('/storage', [StorageController::class, 'view'])->name('storage.view');
-    Route::patch('/storage/{id}', [StorageController::class, 'update'])->name('storage.update');
+    Route::get('/storage/deposit/{id}', [StorageController::class, 'deposit'])->name('storage.deposit');
+    Route::get('/storage/collect/{id}', [StorageController::class, 'collect'])->name('storage.collect');
+    Route::patch('/storage/deposit/{id}', [StorageController::class, 'deposit_store'])->name('storage.deposit.update');
+    Route::patch('/storage/collect/{id}', [StorageController::class, 'collect_store'])->name('storage.collect.update');
+
+    //messages
     Route::get('/messages', [MessagesController::class, 'messages'])->name('messages');
 });
 

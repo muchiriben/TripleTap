@@ -45,4 +45,38 @@ class StorageController extends Controller
 
         return view('admin.storage.view')->with('applications', $applications);
     }
+
+    public function deposit($id)
+    {
+        $application = Storage::findorfail($id);
+
+        return view('admin.storage.deposit')->with('application', $application);
+    }
+
+    public function collect($id)
+    {
+        $application = Storage::findorfail($id);
+
+        return view('admin.storage.collection')->with('application', $application);
+    }
+
+    public function deposit_store(Request $request, $application_id)
+    {
+        $application = Storage::findorfail($application_id);
+
+        $application->actual_deposit_date = $request->actual_deposit_date;
+        $application->save();
+
+        return redirect()->route('admin.storage.view')->with('success', 'Storage Record Updated');
+    }
+
+    public function collect_store(Request $request, $application_id)
+    {
+        $application = Storage::findorfail($application_id);
+
+        $application->actual_collection_date = $request->actual_collection_date;
+        $application->save();
+
+        return redirect()->route('admin.storage.view')->with('success', 'Storage Record Updated');
+    }
 }

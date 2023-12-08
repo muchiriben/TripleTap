@@ -39,6 +39,9 @@
                     <x-nav-link :href="route('admin.gallery')" :active="request()->routeIs('admin.gallery')">
                         {{ __('Gallery') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.storage.view')" :active="request()->routeIs('admin.storage.view')">
+                        {{ __('Storage') }}
+                    </x-nav-link>
                 </div>
             </div>
 
