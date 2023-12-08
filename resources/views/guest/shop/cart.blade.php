@@ -59,13 +59,7 @@
                 </span>
                 <div class="flex items-center">
                   <div class="flex justify-center items-center h-16 w-16 rounded-lg   bg-neutral-color">
-                    @foreach ($products as $product) 
-                    @if ($product->id == $item->model->id)
-                    @if ($product->image != NULL)
-                    <img class="h-16 w-16 rounded-lg object-cover" src="{{ $product->image }}" alt="">
-                    @endif
-                    @endif
-                    @endforeach
+                    <img class="h-16 w-16 rounded-lg object-cover" src="{{ $item->model->image }}" alt="">
                   </div>  
                   <div class="ml-6">
                     <div class="text-sm font-medium text-black">
@@ -85,7 +79,7 @@
                   Quantity
                 </span>
                 <select class="quantity" data-id="{{ $item->rowId }}" data-price="{{$item->model->selling_price}}" data-productQuantity="{{ $item->model->quantity }}">
-                  @for ($i = 1; $i < 5 + 1 ; $i++)
+                  @for ($i = 1; $i < $item->model->quantity + 1 ; $i++)
                       <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
                   @endfor
               </select>
@@ -148,13 +142,7 @@
               <td class="px-6 py-4 whitespace-nowrap">
                   <div class="flex items-center">
                     <div class="flex justify-center items-center h-16 w-16 rounded-lg   bg-neutral-color">
-                      @foreach ($products as $product) 
-                      @if ($product->id == $item->model->id)
-                      @if ($product->image != NULL)
-                      <img class="h-16 w-16 rounded-lg object-cover" src="{{ $product->image }}" alt="">
-                      @endif
-                      @endif
-                      @endforeach
+                      <img class="h-16 w-16 rounded-lg object-cover" src="{{ $item->model->image }}" alt="">
                   </div>  
                     <div class="ml-6">
                       <div class="text-sm font-medium text-black">
@@ -168,7 +156,7 @@
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
                 <select class="quantity" data-id="{{ $item->rowId }}" data-price="{{$item->model->selling_price}}" data-productQuantity="{{ $item->model->quantity }}">
-                  @for ($i = 1; $i < 100 + 1 ; $i++)
+                  @for ($i = 1; $i < $item->model->quantity + 1 ; $i++)
                       <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
                   @endfor
               </select>

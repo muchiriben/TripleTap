@@ -27,7 +27,7 @@
                     <li><a href="/events">Events</a></li>
                     <li><a href="/#contact-us">Contact Us</a></li>
                     <li><a href="/gallery">Gallery</a></li>
-                    <li><a href="/">Storage</a></li><br>
+                    <li><a href="/storage">Storage</a></li><br>
                 </ul> 
                 <div class="nav-cta">
                     <a href="/shop"><button>
@@ -46,12 +46,12 @@
             <nav class="side-navbar" id="side-navbar">
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="#about">About</a> </li>
+                    <li><a href="/#about">About</a> </li>
                     <li><a href="/courses">Courses</a></li>
                     <li><a href="/events">Events</a></li>
-                    <li><a href="#contact-us">Contact Us</a></li>
-                    <li><a href="/gallery.html">Gallery</a></li>
-                    <li><a href="/l">Storage</a></li><br>
+                    <li><a href="/#contact-us">Contact Us</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
+                    <li><a href="/storage">Storage</a></li><br>
                 </ul>
                 <div class="nav-cta">
                     <a href=""><button>

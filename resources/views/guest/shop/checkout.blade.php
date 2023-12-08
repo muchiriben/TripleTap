@@ -53,7 +53,7 @@
   
               <!-- Phone -->
               <div class="mt-4">
-                  <x-input-label for="phone" :value="__('Phone Number')" />
+                  <x-input-label for="phone" :value="__('Contact Phone Number - During Delivery')" />
   
                   <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" placeholder="e.g. 0712345678" required />
               </div>
