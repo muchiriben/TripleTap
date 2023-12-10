@@ -8,7 +8,7 @@
       </x-link-button>
   
       <div class="flex flex-col justify-center items-center bg-white shadow-lg p-4 rounded-lg my-4">
-           <h1 class="uppercase font-bold text-xl sm:text-4xl text-accent-color">Thank you for registering for the course!!</h1>
+           <h1 class="uppercase font-bold text-xl sm:text-4xl text-accent-color">Thank you for registering for the course.</h1>
            <span class="font-medium text-lg">You will be contacted in regards to your acceptance and payment for the course.</span>
       </div>
     </div>
