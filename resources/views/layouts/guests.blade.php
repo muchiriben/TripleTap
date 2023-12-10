@@ -12,7 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/scss/main.scss', 'resources/scss/nav.scss', 'resources/scss/gallery.scss', 'resources/scss/lightbox.scss', 'resources/js/app.js', 'resources/js/lightbox-plus-jquery.js'])
+        @vite(['resources/css/app.css', 'resources/scss/main.css', 'resources/scss/nav.css', 'resources/scss/gallery.css', 'resources/scss/lightbox.css', 'resources/js/app.js', 'resources/js/lightbox-plus-jquery.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <header>
