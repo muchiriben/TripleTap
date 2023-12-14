@@ -69,7 +69,7 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        return view('admin.courses.edit')->with('course' . $course);
     }
 
     /**
@@ -78,27 +78,29 @@ class CourseController extends Controller
     public function update(Request $request, $course_id)
     {
         $course = Course::findorfail($course_id);
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('thumbnail')) {
 
-            // Upload an Image File to Cloudinary 
-            $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), ['folder' => 'category_images'])->getSecurePath();
+            // Upload an thumbnail File to Cloudinary 
+            $uploadedFileUrl = Cloudinary::upload($request->file('thumbnail')->getRealPath(), ['folder' => 'courses_thumbnails'])->getSecurePath();
 
             $imageId = Cloudinary::getPublicId();
 
             //update
-            $course->image = $uploadedFileUrl;
+            $course->thumbnail = $uploadedFileUrl;
             $course->imageId = $imageId;
             //delete previous
             Cloudinary::destroy($request->old_imageId);
         } else {
-            $course->image = $request->old_image;
+            $course->thumbnail = $request->old_image;
             $course->imageId = $request->old_imageId;
         }
 
         $course->name = $request->name;
+        $course->price = $request->price;
+        $course->description = $request->description;
         $course->save();
 
-        return redirect()->route('admin.categories.index')->with('success', 'Course Updated!!');
+        return redirect()->route('admin.courses.index')->with('success', 'Course Updated!!');
     }
 
     /**
@@ -106,6 +108,12 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        if ($course->thumbnail != NULL) {
+            //delete previous
+            Cloudinary::destroy($course->imageId);
+        }
+
+        $course->delete();
+        return redirect()->route('admin.courses.index')->with('error', 'Course Deleted!!');
     }
 }
