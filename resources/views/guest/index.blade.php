@@ -40,9 +40,9 @@
         <div id="main">
             <img src="partners-logos/idpa-logo.svg" alt="">
             <img src="partners-logos/IPSC.png" alt="">
-            <img src="partners-logos/ngao.jpg" alt="">
             <img src="partners-logos/fobus.png" alt="">
             <img src="partners-logos/sniper.png" alt="">
+            <img src="partners-logos/ngao.jpg" alt="">
         </div>
     </section>
 
