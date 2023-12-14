@@ -39,8 +39,8 @@
         <h1>Our Partners</h1>
         <div id="main">
             <img src="partners-logos/idpa-logo.svg" alt="">
-            <img src="partners-logos/ipsc.png" alt="">
-            <img src="partners-logos/ngao.png" alt="">
+            <img src="partners-logos/IPSC.png" alt="">
+            <img src="partners-logos/ngao.jpg" alt="">
             <img src="partners-logos/fobus.png" alt="">
             <img src="partners-logos/sniper.png" alt="">
         </div>
