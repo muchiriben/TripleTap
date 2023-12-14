@@ -38,10 +38,11 @@
     <section id="partners">
         <h1>Our Partners</h1>
         <div id="main">
-            <img src="partners-logos/mpesa.png" alt="">
-            <img src="partners-logos/nsc_logo_01.png" alt="">
-            <img src="partners-logos/Royal_club_logo.png" alt="">
-            <img src="partners-logos/secret_resort_logo.png" alt="">
+            <img src="partners-logos/idpa-logo.svg" alt="">
+            <img src="partners-logos/ipsc.png" alt="">
+            <img src="partners-logos/ngao.png" alt="">
+            <img src="partners-logos/fobus.png" alt="">
+            <img src="partners-logos/sniper.png" alt="">
         </div>
     </section>
 
@@ -113,7 +114,7 @@
             <div id="contact">
                 <div id="phone">
                     <h3 class="highlight">Phone:</h3>
-                    <p><span class="highlight">+254</span>71234678</p>
+                    <p><span class="highlight">+254</span>733 9226938</p>
                 </div>
                 <div id="emails">
                     <h3 class="highlight">Emails:</h3>
