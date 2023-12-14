@@ -22,7 +22,7 @@
             <div class="mt-4">
                 <x-input-label for="description" :value="__('Description')" />
 
-                <x-textarea id="description" class="block mt-1 w-full" type="text" name="description" value="{{ $course->description }}" placeholder="Description" autofocus required />
+                <x-textarea id="description" class="block mt-1 w-full" type="text" name="description" value="{{ $course->description }}" placeholder="Description" autofocus required>{{ $course->description }}</x-textarea>
             </div>
 
             <!-- course price -->

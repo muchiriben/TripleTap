@@ -69,7 +69,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        return view('admin.events.edit')->with('event' . $event);
+        return view('admin.events.edit')->with('event', $event);
     }
 
     /**

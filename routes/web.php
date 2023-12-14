@@ -50,13 +50,21 @@ Route::group([
     'middleware' => ['auth', 'admin']
 ], function () {
     Route::resource('orders', OrderController::class);
+
+    //courses&events
     Route::resource('courses', CourseController::class);
     Route::resource('events', EventController::class);
+    Route::get('/course/registrations/{id}', [CourseandEventController::class, 'course_registrations'])->name('course.registrations');
+    Route::get('/event/registrations/{id}', [CourseandEventController::class, 'event_registrations'])->name('event.registrations');
+
+    //shop
     Route::resource('manufacturers', ManufacturerController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('subcategories', SubCategoryController::class);
     Route::resource('products', ProductController::class);
     Route::get('/findsubcategories/{id}', [FindSubcategoriesController::class, 'findsubcategories'])->name('findsubcategories');
+
+    //gallery
     Route::get('/gallery', [GalleryController::class, 'view'])->name('gallery');
     Route::get('/gallery/create', [GalleryController::class, 'create'])->name('gallery.create');
     Route::post('/gallery/store', [GalleryController::class, 'store'])->name('gallery.store');

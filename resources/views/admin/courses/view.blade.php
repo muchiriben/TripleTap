@@ -34,7 +34,7 @@
                            </th>
                            <th scope="col" class="py-3 px-6 text-xs tracking-wider text-left text-white font-bold uppercase dark:text-gray-400">
                             Date
-                        </th>
+                            </th>
                             <th scope="col" class="p-4">
                                 <span class="sr-only">View Registered</span>
                             </th>
@@ -51,7 +51,7 @@
                         <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
                             <td class="p-2">
                                 <img class="h-16 w-16 rounded-lg object-cover" src="{{ $course->thumbnail }}" alt="">
-                              </td>
+                            </td>
                             <td class="p-1 w-4">
                               {{ $course->id }}
                             </td>
@@ -60,17 +60,17 @@
                             <td class="py-1 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{{ $course->price }}</td>
                             <td class="py-1 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $course->created_at->toDateString() }}</td>
                             <td class="py-1 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                <x-link-button class="bg-secondary-color text-light-color" :href=" route('admin.courses.edit', $category->id)">
+                                <x-link-button class="bg-secondary-color text-light-color" :href=" route('admin.course.registrations', $course->id)">
                                   {{ __('Registrations') }}
                                 </x-link-button>
                               </td>
                             <td class="py-1 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                <x-link-button class="bg-secondary-color text-light-color" :href=" route('admin.courses.edit', $category->id)">
+                                <x-link-button class="bg-secondary-color text-light-color" :href=" route('admin.courses.edit', $course->id)">
                                   {{ __('Edit') }}
                                 </x-link-button>
                               </td>
                               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                  <form action="{{ route('admin.courses.destroy',  $category) }}" method="POST">
+                                  <form action="{{ route('admin.courses.destroy',  $course) }}" method="POST">
                                       @csrf
                                       @method("DELETE")
                                       <x-primary-button class="ml-4 p-2 bg-red-500 rounded-md text-white shadow-md cursor-pointer">

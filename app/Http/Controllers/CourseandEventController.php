@@ -159,4 +159,16 @@ class CourseandEventController extends Controller
         ]);
         return redirect()->route('events.confirm')->with('succcess', 'Registration Successfull!!');
     }
+
+    public function course_registrations($course_id)
+    {
+        $registrations = CourseRegistration::where('course_id', $course_id)->get();
+        return view('admin.courses.registrations')->with('registrations', $registrations);
+    }
+
+    public function event_registrations($event_id)
+    {
+        $registrations = EventRegistration::where('event_id', $event_id)->get();
+        return view('admin.events.registrations')->with('registrations', $registrations);
+    }
 }

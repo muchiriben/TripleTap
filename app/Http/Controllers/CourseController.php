@@ -69,7 +69,7 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        return view('admin.courses.edit')->with('course' . $course);
+        return view('admin.courses.edit')->with('course', $course);
     }
 
     /**
