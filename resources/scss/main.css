@@ -738,7 +738,7 @@ footer h3 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 110vw;
+  width: 100vw;
 }
 #partners h1 {
   display: flex;
@@ -753,7 +753,6 @@ footer h3 {
   margin: 20px 0;
 }
 #partners #main {
-  padding: 20px;
   width: 100%;
   display: grid;
   justify-content: center;
