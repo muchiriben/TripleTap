@@ -17,13 +17,21 @@ class MessagesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'fname' => ['required', 'string', 'max:255'],
+            'lname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:255'],
+            'message' => ['required', 'string'],
         ]);
 
-        $manufacturer = Message::create([
-            'name' => $request->name,
+        Message::create([
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'message' => $request->message,
         ]);
 
-        return redirect()->route('admin.manufacturers.create')->with('success', 'New manufacturer added');
+        return redirect()->route('home')->with("success", "Message sent. We'll get back to you soon.");
     }
 }

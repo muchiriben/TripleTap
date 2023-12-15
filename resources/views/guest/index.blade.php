@@ -66,6 +66,7 @@
         <div class="title">
             <h1>Reach Out</h1>
         </div>
+        @include('includes.messages')
         <div id="form-map">
             <div id="form">
                 <form  method="POST" action="{{ route('message.store') }}">
