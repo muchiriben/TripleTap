@@ -79,6 +79,7 @@ Route::group([
 
     //messages
     Route::get('/messages', [MessagesController::class, 'messages'])->name('messages');
+    Route::get('/messages/destroy/{message}', [MessagesController::class, 'destroy'])->name('message.destroy');
 });
 
 //messages

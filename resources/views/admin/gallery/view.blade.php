@@ -45,11 +45,11 @@
                             </td>
                             <td class="py-1 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><a href="{{$image->image}}" target="_blank">{{ $image->image }}</a></td>
                             <td class="py-1 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $image->created_at->toDateString() }}</td>
-                              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <x-link-button class="bg-red-500 text-light-color" :href=" route('admin.gallery.destroy', $image->id)">
                                     {{ __('Delete') }}
                                 </x-link-button>
-                              </td>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
