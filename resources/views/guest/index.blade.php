@@ -38,11 +38,14 @@
     <section id="partners">
         <h1>Our Partners</h1>
         <div id="main">
-            <img src="partners-logos/eagle.webp" alt="">
-            <img src="partners-logos/idpa-logo.svg" alt="">
-            <img src="partners-logos/IPSC.png" alt="">
+            <img src="partners-logos/eagle_med.jpg" alt="">
+            <img src="partners-logos/prosak.jpg" alt="">
+            <img src="partners-logos/alligators.jpg" alt="">
             <img src="partners-logos/fobus.png" alt="">
+            <img src="partners-logos/idpa-logo.svg" alt="">
             <img src="partners-logos/sniper.png" alt="">
+            <img src="partners-logos/tripletapacademy.jpg" alt="">
+            <img src="partners-logos/IPSC.png" alt="">
             <img src="partners-logos/ngao.jpg" alt="">
         </div>
     </section>
