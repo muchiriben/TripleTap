@@ -82,6 +82,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 110vw;
 
     h1 {
         display: flex;
@@ -108,7 +109,7 @@
         grid-row-gap: 10px;
 
         img {
-            width: 43%;
+            width: 53%;
             aspect-ratio: 3/2;
             object-fit: contain;
             //mix-blend-mode: color-burn;
