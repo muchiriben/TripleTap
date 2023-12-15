@@ -97,13 +97,13 @@
     }
 
     #main {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        flex-direction: row;
-        width: 100%;
-        text-align: center;
         padding: 20px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
 
         img {
             width: 19%;
@@ -492,6 +492,10 @@
 
     #partners {
         #main {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            text-align: center;
             flex-direction: column;
 
             img {

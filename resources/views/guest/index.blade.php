@@ -38,6 +38,7 @@
     <section id="partners">
         <h1>Our Partners</h1>
         <div id="main">
+            <img src="partners-logos/eagle.webp" alt="">
             <img src="partners-logos/idpa-logo.svg" alt="">
             <img src="partners-logos/IPSC.png" alt="">
             <img src="partners-logos/fobus.png" alt="">
@@ -86,7 +87,7 @@
                         </div>
                         <div class="inputBox">
                          <span>Phone Number <span class="text-green-500">(Optional)</span></span>
-                         <input type="text" name="phone" placeholder="+1(638) 123-4567">
+                         <input type="text" name="phone" placeholder="+254712345678">
                       </div>
                     </div>
     
@@ -99,7 +100,7 @@
     
                     <div class="row100">
                         <div class="inputBox">
-                           <input type="submit" value="Send" class="send button gradient">
+                           <input type="submit" value="Send" class="send button">
                         </div>
                     </div>
     
@@ -107,7 +108,7 @@
                    </form>
             </div>
             <div id="map">
-                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.3455312944798!2d36.41736767384739!3d-0.8820618991093949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182931948af79157%3A0xbe8a31774874ed3d!2sKedong%20Ranch%20House!5e0!3m2!1sen!2ske!4v1698498433737!5m2!1sen!2ske" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.805925911362!2d36.8022405738482!3d-1.2907588986969618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10c7409cc719%3A0x9cc19aae9fdfa975!2sKedong%20House%2C%20Lenana%20Rd%2C%20Nairobi%20City!5e0!3m2!1sen!2ske!4v1702624461042!5m2!1sen!2ske" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
         <div id="main">
