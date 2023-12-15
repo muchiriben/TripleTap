@@ -100,7 +100,7 @@
         padding: 20px;
         width: 100%;
         display: grid;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(3, 1fr);
@@ -108,7 +108,7 @@
         grid-row-gap: 10px;
 
         img {
-            width: 37%;
+            width: 43%;
             aspect-ratio: 3/2;
             object-fit: contain;
             //mix-blend-mode: color-burn;
