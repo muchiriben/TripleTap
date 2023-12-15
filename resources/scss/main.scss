@@ -100,16 +100,16 @@
         padding: 20px;
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(3, 1fr);
         grid-column-gap: 10px;
         grid-row-gap: 10px;
 
         img {
-            width: 33%;
+            width: 37%;
             aspect-ratio: 3/2;
             object-fit: contain;
-           // mix-blend-mode: color-burn;
+            mix-blend-mode: color-burn;
         }
     }
 }
