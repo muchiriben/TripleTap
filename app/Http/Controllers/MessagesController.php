@@ -33,9 +33,15 @@ class MessagesController extends Controller
             'message' => $request->message,
         ]);
 
-        $data = array(['First name' => $request->fname]);
+        $details = array(
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'message' => $request->message,
+        );
 
-        Mail::send(['text' => 'mail'], $data, function ($message) {
+        Mail::send(['text' => 'mail'], $details, function ($message) {
             $message->to('tripletaplimitedkenya@gmail.com', 'Triple Tap Limited')->subject('New Message Reveived');
             $message->from('precision@tripletaplimited.com', 'Triple Tap Limited');
         });
