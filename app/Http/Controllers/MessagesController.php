@@ -43,7 +43,7 @@ class MessagesController extends Controller
 
         Mail::to('tripletaplimitedkenya@gmail.com')->send(new \App\Mail\NotificationMail($details));
 
-        return redirect()->route('home')->with("success", "Message sent. We'll get back to you soon.");
+        return redirect()->route('https://www.tripletaplimited.com/#contact-us')->with("success", "Message sent. We'll get back to you soon.");
     }
 
     public function destroy($id)
