@@ -119,7 +119,7 @@
             <div id="contact">
                 <div id="phone">
                     <h3 class="highlight">Phone:</h3>
-                    <p><span class="highlight">+254</span>733 9226938</p>
+                    <p><span class="highlight">+254</span>733 922693</p>
                 </div>
                 <div id="emails">
                     <h3 class="highlight">Emails:</h3>
