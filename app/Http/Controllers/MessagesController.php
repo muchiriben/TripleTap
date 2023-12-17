@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Mail;
 
 class MessagesController extends Controller
 {
@@ -31,6 +32,13 @@ class MessagesController extends Controller
             'phone' => $request->phone,
             'message' => $request->message,
         ]);
+
+        $data = array(['First name' => $request->fname]);
+
+        Mail::send(['text' => 'mail'], $data, function ($message) {
+            $message->to('tripletaplimitedkenya@gmail.com', 'Triple Tap Limited')->subject('New Message Reveived');
+            $message->from('precision@tripletaplimited.com', 'Triple Tap Limited');
+        });
 
         return redirect()->route('home')->with("success", "Message sent. We'll get back to you soon.");
     }
