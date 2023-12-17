@@ -41,10 +41,7 @@ class MessagesController extends Controller
             'message' => $request->message,
         );
 
-        Mail::send(['text' => 'mail'], $details, function ($message) {
-            $message->to('tripletaplimitedkenya@gmail.com', 'Triple Tap Limited')->subject('New Message Reveived');
-            $message->from('precision@tripletaplimited.com', 'Triple Tap Limited');
-        });
+        Mail::to('tripletaplimitedkenya@gmail.com')->send(new \App\Mail\NotificationMail($details));
 
         return redirect()->route('home')->with("success", "Message sent. We'll get back to you soon.");
     }
