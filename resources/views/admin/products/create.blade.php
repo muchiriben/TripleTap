@@ -114,6 +114,11 @@
         $('#category_id').on('change', function() {
             var categoryID = $(this).val();
             if(categoryID) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
                 $.ajax({
                     url: '/admin/findsubcategories/'+categoryID,
                     type: "GET",
