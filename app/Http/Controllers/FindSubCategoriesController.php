@@ -10,6 +10,7 @@ class FindSubCategoriesController extends Controller
     public function findsubcategories($id)
     {
         $subcategories = Subcategory::where('category_id', $id)->get();
-        return response()->json($subcategories);
+        dd($subcategories);
+        // return response()->json($subcategories);
     }
 }
