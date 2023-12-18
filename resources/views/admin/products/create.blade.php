@@ -111,18 +111,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	    <script>
          $(document).ready(function() {
-        $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-        });    
         $('#category_id').on('change', function() {
             var categoryID = $(this).val();
             if(categoryID) {
                 $.ajax({
                     url: '/admin/findsubcategories/'+categoryID,
                     type: "GET",
-                    //data : {"_token":"{{ csrf_token() }}"},
+                    data : {"_token":"{{ csrf_token() }}"},
                     dataType: "json",
                     success:function(data) {
                         //console.log(data);
