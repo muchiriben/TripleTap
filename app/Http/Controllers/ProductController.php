@@ -34,7 +34,7 @@ class ProductController extends Controller
     {
         $manufacturers = Manufacturer::orderBy('name', 'asc')->get();
         $categories = Category::orderBy('name', 'asc')->get();
-        $subcategories = subcategory::orderBy('name', 'asc')->get();
+        $subcategories = SubCategory::orderBy('name', 'asc')->get();
 
         return view('admin.products.create')->with([
             'manufacturers' => $manufacturers,
@@ -98,7 +98,7 @@ class ProductController extends Controller
     {
         $manufacturers = Manufacturer::orderBy('name', 'asc')->get();
         $categories = Category::orderBy('name', 'asc')->get();
-        $subcategories = subcategory::orderBy('name', 'asc')->get();
+        $subcategories = SubCategory::orderBy('name', 'asc')->get();
 
         $manufacturer = Manufacturer::findorfail($product->manufacturer_id);
         $subcategory = SubCategory::findorfail($product->subcategory_id);
