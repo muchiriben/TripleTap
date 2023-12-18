@@ -13,7 +13,7 @@ use App\Http\Controllers\CourseandEventController;
 use App\Http\Controllers\ManufacturerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
-use App\Http\Controllers\FindSubcategoriesController;
+use App\Http\Controllers\FindSubCategoriesController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\StorageController;
 use App\Http\Controllers\DashboardController;
@@ -62,7 +62,7 @@ Route::group([
     Route::resource('categories', CategoryController::class);
     Route::resource('subcategories', SubCategoryController::class);
     Route::resource('products', ProductController::class);
-    Route::get('/findsubcategories/{id}', [FindSubcategoriesController::class, 'findsubcategories'])->name('findsubcategories');
+    Route::get('/findsubcategories/{id}', [FindSubCategoriesController::class, 'findsubcategories'])->name('findsubcategories');
 
     //gallery
     Route::get('/gallery', [GalleryController::class, 'view'])->name('gallery');
