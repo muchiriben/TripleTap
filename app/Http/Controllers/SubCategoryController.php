@@ -61,7 +61,7 @@ class SubCategoryController extends Controller
         ]);
 
 
-        return redirect()->route('admin.subcategories.create')->with('success', 'New category added');
+        return redirect()->route('admin.subcategories.create')->with('success', 'New Subcategory added');
     }
 
     /**
@@ -129,6 +129,6 @@ class SubCategoryController extends Controller
         }
 
         $subcategory->delete();
-        return redirect()->route('admin.subcategories.index');
+        return redirect()->route('admin.subcategories.index')->with('error', 'Subcategory Deleted!!');
     }
 }

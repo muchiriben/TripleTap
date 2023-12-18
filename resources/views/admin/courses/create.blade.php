@@ -27,7 +27,7 @@
             <div class="mt-4">
                 <x-input-label for="description" :value="__('Description')" />
 
-                <x-textarea id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description')" placeholder="Description" autofocus required />
+                <x-textarea id="description" class="ckeditor block mt-1 w-full" type="text" name="description" :value="old('description')" placeholder="Description" autofocus required />
             </div>
 
             <!-- course price -->
@@ -58,4 +58,11 @@
             </div>
         </div>
     </div>
+
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.ckeditor').ckeditor();
+        });
+    </script>
 </x-app-layout>

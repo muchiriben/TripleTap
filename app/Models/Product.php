@@ -20,4 +20,30 @@ class Product extends Model
         'manufacturer_id',
         'subcategory_id',
     ];
+
+    public function subCategories()
+    {
+        return $this->belongsToMany('App\Models\SubCategory');
+    }
+
+    //check user subCategorys
+    public function hasAnysubCategories(array $subCategories)
+    {
+
+        if ($this->subCategorys()->whereIn('name', $subCategories)->first()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function hasAnysubCategory(string $subCategory)
+    {
+
+        if ($this->subCategorys()->where('name', $subCategory)->first()) {
+            return true;
+        }
+
+        return false;
+    }
 }

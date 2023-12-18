@@ -67,7 +67,6 @@ class ProductController extends Controller
         $product = Product::create([
             'name' => $request->name,
             'manufacturer_id' => $request->manufacturer_id,
-            'subcategory_id' => $request->subcategory_id,
             'purchase_price' => $request->purchase_price,
             'selling_price' => $request->selling_price,
             'quantity' => $request->quantity,
@@ -75,6 +74,10 @@ class ProductController extends Controller
             'image' => $uploadedFileUrl,
             'imageId' => $imageId,
         ]);
+
+        $subcategories = $request->subcategories;
+        $product->subcategories()->sync($subcategories);
+
 
 
         return redirect()->route('admin.products.create')->with('success', 'New Product/Accessory added!!');

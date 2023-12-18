@@ -25,16 +25,16 @@
 
         <div class="flex flex-col sm:flex-row items-start justify-center p-4">
 
-            <div class="w-full sm:w-1/3 p-4">
+            <div class="w-full sm:w-1/2 p-4">
                 <div class="rounded-lg">
                     <img class="rounded-lg" src="{{$course->thumbnail}}" alt="">
                 </div>
                 <h1 class="font-bold text-lg mt-2">About the Course</h1>
-                <p class="text-secondary-color">{{ $course->description }}</p>
-                <p class="mt-2 font-bold text-lg"><span class="text-primary-color">Price per person:</span> Ksh {{ $course->price }}/-</p>
+                <p class="text-secondary-color">{!! $course->description !!}</p>
+                <p class="mt-2 font-bold text-lg"><span class="text-primary-color">Estimated Price per Session per Person:</span> Ksh {{ $course->price }}/-</p>
             </div>   
         
-        <fieldset id="group_form" class="flex flex-col items-start w-full sm:w-2/3 p-4 border-2 border-secondary-color rounded-md mt-4">
+        <fieldset id="group_form" class="flex flex-col items-start w-full sm:w-1/2 p-4 border-2 border-secondary-color rounded-md mt-4">
             <legend class="px-2 font-bold">Group Registration:</legend>
             <form id="group-form" class="w-full" method="POST" action="{{ route('courses.store.group') }}" enctype="multipart/form-data">
                 @csrf

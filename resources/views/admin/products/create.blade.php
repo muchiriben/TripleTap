@@ -31,7 +31,9 @@
           </div>
 
           <!-- Category -->
-          <div class="mt-4">
+          <fieldset class="border-2 rounded-md p-4">
+            <legend class="mx-8 p-2">Select Subcategories</legend>
+          <div class="">
             <x-input-label for="category_id" :value="__('Category')" />
 
             <select name="category_id" id="category_id" class= "block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
@@ -50,6 +52,17 @@
                 
             </select>
         </div>
+
+        <div id="controls" class="flex flex-row gap-4 justify-center items-center">
+            <a href="#subcategories" id="add_subcategory" class="button bg-secondary-color text-light-color rounded-lg mt-2 mr-2 p-2">Add Subcategory</a>
+            <a href="#subcategories" id="remove_subcategory" class="button bg-secondary-color text-light-color rounded-lg mt-2 ml-2 p-2">Remove Subcategory</a>
+        </div>
+          </fieldset>
+
+          <fieldset id="subcategories" class="border-2 rounded-md p-4">
+            <legend class="mx-8 p-2">Selected Subcategories</legend>
+          
+          </fieldset>  
 
             <!-- Purchase Price -->
             <div class="mt-4">
@@ -126,5 +139,33 @@
         });
     });
     </script>
+
+<script type="text/javascript">
+    var subcategories = document.getElementById('subcategories');
+    var subcategory_id = document.getElementById('subcategory_id');
+    var subCategoryName = subcategory_id.value.name;
+
+    var add_subcategory = document.getElementById('add_subcategory');
+    var remove_subcategory = document.getElementById('remove_subcategory');
+
+    add_subcategory.onclick = function(){
+    var subCategory_select = document.querySelector('[name="subcategory_id"]');
+    var subCategoryId = subCategory_select.value; 
+
+    var newField = document.createElement('input');
+    newField.setAttribute('type','text');
+    newField.setAttribute('name','subcategories[]');
+    newField.setAttribute('class','rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full');
+    newField.setAttribute('value', subCategoryId);
+    subcategories.appendChild(newField);
+    }
+
+    remove_subcategory.onclick = function(){
+    var input_tags = subcategories.getElementsByTagName('input');
+    if(input_tags.length > 1) {
+        subcategories.removeChild(input_tags[(input_tags.length) - 1]);
+    }
+    }
+</script>
 
 </x-app-layout>

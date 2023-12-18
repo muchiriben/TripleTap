@@ -30,7 +30,7 @@
                     <img class="rounded-lg" src="{{$event->thumbnail}}" alt="">
                 </div>
                 <h1 class="font-bold text-lg mt-2">About the event</h1>
-                <p class="text-secondary-color">{{ $event->description }}</p>
+                <p class="text-secondary-color">{!! $event->description !!}</p>
                 <p class="mt-2 font-bold text-lg"><span class="text-primary-color">Price per person:</span> Ksh {{ $event->price }}/-</p>
             </div>   
 

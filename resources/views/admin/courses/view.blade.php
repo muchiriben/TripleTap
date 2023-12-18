@@ -10,7 +10,7 @@
             <x-link-button class="w-fit shadow-xl bg-secondary-color text-light-color hover:text-accent-color" :href="route('admin.courses.create')">
                 {{ __('Add Course') }}
               </x-link-button>
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white dark:bg-gray-800 overflow-x-auto shadow-sm sm:rounded-lg">
                 
                 <table class="min-w-full divide-y divide-gray-200 table-fixed">
                     <thead class="bg-primary-color">
@@ -56,7 +56,7 @@
                               {{ $course->id }}
                             </td>
                             <td class="py-1 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $course->name }}</td>
-                            <td class="py-1 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{{ $course->description }}</td>
+                            <td class="py-1 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{!! $course->description !!}</td>
                             <td class="py-1 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{{ $course->price }}</td>
                             <td class="py-1 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $course->created_at->toDateString() }}</td>
                             <td class="py-1 px-6 text-sm font-medium text-right whitespace-nowrap">

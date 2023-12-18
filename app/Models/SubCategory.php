@@ -15,4 +15,9 @@ class SubCategory extends Model
         'image',
         'imageId',
     ];
+
+    public function products()
+    {
+        return $this->belongsToMany('App\Models\Product');
+    }
 }
