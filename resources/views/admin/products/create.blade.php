@@ -114,15 +114,13 @@
         $('#category_id').on('change', function() {
             var categoryID = $(this).val();
             if(categoryID) {
-                $.ajaxSetup({
+                $.ajax({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
-                });
-                $.ajax({
                     url: '/admin/findsubcategories/'+categoryID,
                     type: "GET",
-                    //data : {"_token":"{{ csrf_token() }}"},
+                    data : {"_token":"$('meta[name="csrf-token"]').attr('content')"},
                     dataType: "json",
                     success:function(data) {
                         //console.log(data);
