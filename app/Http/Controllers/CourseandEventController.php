@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\CourseRegistration;
 use App\Models\EventRegistration;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CourseandEventController extends Controller
 {
@@ -52,6 +53,13 @@ class CourseandEventController extends Controller
             'agreement' => $request->agreement,
             'payment_status' => 'Pending',
         ]);
+
+        $details = array(
+            'detail' => "Individual Course Registration Made",
+        );
+
+        Mail::to('tripletaplimitedkenya@gmail.com')->send(new \App\Mail\RegistrationsMail($details));
+
         return redirect()->route('courses.confirm')->with('succcess', 'Registration Successfull');
     }
 
@@ -82,6 +90,13 @@ class CourseandEventController extends Controller
             'agreement' => $request->agreement,
             'payment_status' => 'Pending',
         ]);
+
+        $details = array(
+            'detail' => "Group Course Registration Made",
+        );
+
+        Mail::to('tripletaplimitedkenya@gmail.com')->send(new \App\Mail\RegistrationsMail($details));
+
         return redirect()->route('courses.confirm')->with('succcess', 'Registration Successfull!!');
     }
 
@@ -127,6 +142,13 @@ class CourseandEventController extends Controller
             'agreement' => $request->agreement,
             'payment_status' => 'Pending',
         ]);
+
+        $details = array(
+            'detail' => "Individual Event Registration Made",
+        );
+
+        Mail::to('tripletaplimitedkenya@gmail.com')->send(new \App\Mail\RegistrationsMail($details));
+
         return redirect()->route('events.confirm')->with('succcess', 'Registration Successfull!!');
     }
 
@@ -157,18 +179,33 @@ class CourseandEventController extends Controller
             'agreement' => $request->agreement,
             'payment_status' => 'Pending',
         ]);
+
+        $details = array(
+            'detail' => "Group Event Registration Made",
+        );
+
+        Mail::to('tripletaplimitedkenya@gmail.com')->send(new \App\Mail\RegistrationsMail($details));
+
         return redirect()->route('events.confirm')->with('succcess', 'Registration Successfull!!');
     }
 
     public function course_registrations($course_id)
     {
         $registrations = CourseRegistration::where('course_id', $course_id)->get();
-        return view('admin.courses.registrations')->with('registrations', $registrations);
+        $courses = Course::all();
+        return view('admin.courses.registrations')->with([
+            'registrations' => $registrations,
+            'courses' => $courses,
+        ]);
     }
 
     public function event_registrations($event_id)
     {
         $registrations = EventRegistration::where('event_id', $event_id)->get();
-        return view('admin.events.registrations')->with('registrations', $registrations);
+        $events = Event::all();
+        return view('admin.events.registrations')->with([
+            'registrations', $registrations,
+            'events' => $events,
+        ]);
     }
 }

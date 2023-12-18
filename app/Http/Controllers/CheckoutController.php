@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
@@ -69,6 +70,17 @@ class CheckoutController extends Controller
 
             //destroy cart
             Cart::instance('default')->destroy();
+
+            $details = array(
+                'name' => $request->name,
+                'location' => $request->location,
+                'phone' => $request->phone,
+                'mpesa_code' => $request->mpesa_code,
+                'notes' => $request->notes,
+                'total' => Cart::subTotal(0, '', ''),
+            );
+
+            Mail::to('tripletaplimitedkenya@gmail.com')->send(new \App\Mail\OrderMail($details));
 
             return redirect()->route('confirmation', ['id' => $order->id]);
         } else {

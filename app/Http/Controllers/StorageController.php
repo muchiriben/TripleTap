@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class StorageController extends Controller
 {
@@ -35,6 +36,19 @@ class StorageController extends Controller
             'duration' => $request->duration,
             'expected_deposit_date' => $request->expected_deposit_date,
         ]);
+
+        $details = array(
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'serial_no' => $request->serial_no,
+            'fc_no' => $request->fc_no,
+            'item_type' => $request->item_type,
+            'model' => $request->model,
+            'duration' => $request->duration,
+            'expected_deposit_date' => $request->expected_deposit_date,
+        );
+
+        Mail::to('tripletaplimitedkenya@gmail.com')->send(new \App\Mail\StorageMail($details));
 
         return redirect()->route('storage.confirm')->with('success', 'Storage application successful');
     }

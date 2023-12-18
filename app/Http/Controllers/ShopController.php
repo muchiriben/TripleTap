@@ -40,7 +40,7 @@ class ShopController extends Controller
     public function accessories($id)
     {
         $manufacturers = Manufacturer::all();
-        $products = Product::where('subcategory_id', $id)->get();
+        $products = SubCategory::find($id)->products()->orderBy('name')->get();
 
         return view('guest.shop.products')->with([
             'manufacturers' => $manufacturers,
