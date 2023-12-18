@@ -117,7 +117,7 @@
                 $.ajax({
                     url: '/admin/findsubcategories/'+categoryID,
                     type: "GET",
-                    data : {"_token":"{{ csrf_token() }}"},
+                    //data : {"_token":"{{ csrf_token() }}"},
                     dataType: "json",
                     success:function(data) {
                         //console.log(data);
