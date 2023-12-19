@@ -105,6 +105,8 @@ class ProductController extends Controller
         $subcategory = SubCategory::findorfail($product->subcategory_id);
         $category = Category::findorfail($subcategory->category_id);
 
+        dd($product);
+
         return view('admin.products.edit')
             ->with([
                 'product' => $product,
