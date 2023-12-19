@@ -72,7 +72,7 @@ class ShopController extends Controller
         $products = Product::where('name', 'LIKE', "%{$search_name}%")
             ->orWhere('description', 'LIKE', "%{$search_name}%")
             ->get();
-
+        dd($products);
 
         return view('guest.shop.product-search')->with([
             'products' => $products,
