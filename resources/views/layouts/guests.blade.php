@@ -68,7 +68,6 @@
             @vite(['resources/js/nav.js'])
         </header>
 
-        @include('includes.messages')
         {{ $slot }}
 
         <footer>

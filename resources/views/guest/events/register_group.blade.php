@@ -10,6 +10,7 @@
         </div>
     </section>
 
+    @include('includes.messages')
     <!-- products section -->
     <section class="event min-h-screen w-full p-2 flex items-center justify-center flex-col">
 
