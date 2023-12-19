@@ -145,6 +145,10 @@ class ProductController extends Controller
         $product->selling_price = $request->selling_price;
         $product->quantity = $request->quantity;
         $product->description = $request->description;
+
+        $subcategories = $request->subcategories;
+        $product->subcategories()->sync($subcategories);
+
         $product->save();
 
         return redirect()->route('admin.products.index')->with('success', 'Accessory/Product Updated!!');

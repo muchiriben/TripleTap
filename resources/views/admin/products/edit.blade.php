@@ -62,7 +62,7 @@
         <fieldset id="subcategories" class="border-2 rounded-md p-4">
             <legend class="mx-8 p-2">Selected Subcategories</legend>
                @foreach ($subcategories as $subcategory)
-                   <x-text-input id="subcategories[]" class="block mt-1 w-full" type="number" name="subcategories[]" value="{{$subcategory->id}}" required />
+                   <x-text-input id="subcategories" class="block mt-1 w-full" type="number" name="subcategories[]" value="{{$subcategory->id}}" required >{{ $subcategory->name }}</x-text-input>
                @endforeach
         </fieldset> 
 
@@ -158,7 +158,7 @@
     var subCategoryId = subCategory_select.value; 
 
     var newField = document.createElement('input');
-    newField.setAttribute('type','text');
+    newField.setAttribute('type','number');
     newField.setAttribute('name','subcategories[]');
     newField.setAttribute('class','rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full');
     newField.setAttribute('value', subCategoryId);
