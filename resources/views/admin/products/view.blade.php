@@ -85,7 +85,7 @@
                             <td class="py-1 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{{ $product->description }}</td>
                             <td class="py-1 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $product->created_at->toDateString() }}</td>
                             <td class="py-1 px-6 text-sm font-medium text-right whitespace-nowrap">
-                                <x-link-button class="bg-secondary-color text-light-color" :href=" route('admin.products.edit', $product)">
+                                <x-link-button class="bg-secondary-color text-light-color" :href=" route('admin.products.edit', $product->id)">
                                   {{ __('Edit') }}
                               </x-link-button>
                               </td>
