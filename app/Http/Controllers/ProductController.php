@@ -141,6 +141,7 @@ class ProductController extends Controller
         }
 
         $product->name = $request->name;
+        $product->manufacturer_id = $request->manufacturer_id;
         $product->purchase_price = $request->purchase_price;
         $product->selling_price = $request->selling_price;
         $product->quantity = $request->quantity;
