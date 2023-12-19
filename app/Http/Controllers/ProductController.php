@@ -94,18 +94,15 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($product_id)
+    public function edit(Product $product)
     {
         $manufacturers = Manufacturer::orderBy('name', 'asc')->get();
         $categories = Category::orderBy('name', 'asc')->get();
         $subcategories = SubCategory::orderBy('name', 'asc')->get();
 
-        $product = Product::findorfail($product_id);
         $manufacturer = Manufacturer::findorfail($product->manufacturer_id);
         $subcategory = SubCategory::findorfail($product->subcategory_id);
         $category = Category::findorfail($subcategory->category_id);
-
-        dd($product);
 
         return view('admin.products.edit')
             ->with([
