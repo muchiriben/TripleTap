@@ -69,8 +69,8 @@ class ShopController extends Controller
     public function search_result($search_name)
     {
         $manufacturers = Manufacturer::all();
-        $products = Product::where('name', 'LIKE', "%{$search_name}%")
-            ->orWhere('description', 'LIKE', "%{$search_name}%")
+        $products = Product::where('name', 'ilIKE', "%{$search_name}%")
+            ->orWhere('description', 'ilIKE', "%{$search_name}%")
             ->get();
         dd($products);
 
