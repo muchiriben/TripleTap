@@ -62,7 +62,8 @@
         <fieldset id="subcategories" class="border-2 rounded-md p-4">
             <legend class="mx-8 p-2">Selected Subcategories</legend>
                @foreach ($subcategories as $subcategory)
-                   <x-text-input id="subcategories" class="block mt-1 w-full" type="number" name="subcategories[]" value="{{$subcategory->id}}" required >{{ $subcategory->name }}</x-text-input>
+                <x-input-label for="subcategories" value="{{$subcategory->name}}" />
+                <x-text-input id="subcategories" class="block mt-1 w-full" type="number" name="subcategories[]" value="{{$subcategory->id}}" required />
                @endforeach
         </fieldset> 
 
@@ -148,7 +149,6 @@
 <script type="text/javascript">
     var subcategories = document.getElementById('subcategories');
     var subcategory_id = document.getElementById('subcategory_id');
-    var subCategoryName = subcategory_id.value.name;
 
     var add_subcategory = document.getElementById('add_subcategory');
     var remove_subcategory = document.getElementById('remove_subcategory');

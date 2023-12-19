@@ -143,7 +143,6 @@
 <script type="text/javascript">
     var subcategories = document.getElementById('subcategories');
     var subcategory_id = document.getElementById('subcategory_id');
-    var subCategoryName = subcategory_id.value.name;
 
     var add_subcategory = document.getElementById('add_subcategory');
     var remove_subcategory = document.getElementById('remove_subcategory');
