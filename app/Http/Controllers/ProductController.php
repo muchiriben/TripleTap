@@ -18,7 +18,7 @@ class ProductController extends Controller
     {
         $manufacturers = Manufacturer::all();
         $subcategories = SubCategory::all();
-        $products = Product::all();
+        $products = Product::paginate(15);
 
         return view('admin.products.view')->with([
             'products' => $products,
