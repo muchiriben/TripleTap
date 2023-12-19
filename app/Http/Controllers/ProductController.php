@@ -101,8 +101,8 @@ class ProductController extends Controller
         $subcategories = SubCategory::orderBy('name', 'asc')->get();
 
         $manufacturer = Manufacturer::findorfail($product->manufacturer_id);
-        $subcategory = SubCategory::findorfail($product->subcategory_id);
-        $category = Category::findorfail($subcategory->category_id);
+        $subcategories = Product::find($product->id)->subcategories()->get();
+        $categories = Category::all();
 
         return view('admin.products.edit')
             ->with([
@@ -111,8 +111,8 @@ class ProductController extends Controller
                 'categories' => $categories,
                 'subcategories' => $subcategories,
                 'manufacturer' => $manufacturer,
-                'category' => $category,
-                'subcategory' => $subcategory,
+                'categories' => $categories,
+                'subcategories' => $subcategories,
             ]);
     }
 
