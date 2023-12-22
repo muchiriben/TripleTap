@@ -56,7 +56,7 @@
                     <li><a href="/storage">Storage</a></li><br>
                 </ul>
                 <div class="nav-cta">
-                    <a href=""><button>
+                    <a href="/shop"><button>
                         <span>Shop now</span>
                         <svg width="34" height="34" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="37" cy="37" r="35.5" stroke="#FFCE63" stroke-width="4"></circle>
