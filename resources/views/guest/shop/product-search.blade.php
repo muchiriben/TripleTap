@@ -59,6 +59,7 @@
                    <div class="flex flex-col">
                       <h2 class="font-bold text-sm lg:text-base">KSh {{ $product->selling_price }}</h2>
                       <h2 class="font-bold text-sm lg:text-base">{{ $product->name }}</h2>
+                      <h2>{{ $product->subcategories() }}</h2>
                       @if ($product->quantity == 0)
                       <h2 class="font-bold text-md lg:text-base text-red-500">(Out of Stock)
                       </h2>
