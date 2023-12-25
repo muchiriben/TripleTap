@@ -12,7 +12,7 @@
                 <div class="mx-4 pt-1 pb-2 relative text-center text-gray-600">
                     <form method="POST" action="{{ route('search') }}">
                         @csrf
-                    <input class="border-4 border-primary-color bg-light-color h-12 w-80 px-5 pr-16 rounded-lg text-md text-primary-color focus:outline-none"
+                    <input class="border-4 border-secondary-color bg-light-color h-12 w-80 px-5 pr-16 rounded-lg text-md text-primary-color focus:outline-none"
                       type="search" name="search" placeholder="Search Accessories">
                     <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
                       <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +26,7 @@
                 </form>
               </div>
             </div>
-            <div class="scrolldown" style="--color: #0B409C">
+            <div class="scrolldown" style="--color: #10316B">
                 <div class="chevrons">
                     <div class="chevrondown"></div>
                     <div class="chevrondown"></div>
