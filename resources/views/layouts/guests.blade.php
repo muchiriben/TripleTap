@@ -14,7 +14,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/scss/main.css', 'resources/scss/nav.css', 'resources/scss/gallery.css', 'resources/scss/lightbox.css', 'resources/js/app.js', 'resources/js/lightbox-plus-jquery.js', 'resources/js/jquery.snowfall.js',])
+        @vite(['resources/css/app.css', 'resources/scss/main.css', 'resources/scss/nav.css', 'resources/scss/gallery.css', 'resources/scss/lightbox.css', 'resources/js/app.js', 'resources/js/lightbox-plus-jquery.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <header>
@@ -75,7 +75,5 @@
             <h3>Terms & Conditions</h3>
             <h3>Our Policies</h3>
         </footer>
-
-        <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     </body>
 </html>

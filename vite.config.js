@@ -13,7 +13,6 @@ export default defineConfig({
                 'resources/scss/lightbox.css',
                 'resources/js/nav.js',
                 'resources/js/lightbox-plus-jquery.js',
-                'resources/js/jquery.snowfall.js',
             ],
             refresh: true,
         }),

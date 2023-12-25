@@ -32,17 +32,7 @@
                     <div class="chevrondown"></div>
                 </div>
             </div>
-        </div> 
-        
-        <script type="text/javascript">
-            $.snowfall.start({
-                content: '<i class="fa fa-snowflake-o"></i>',
-				size: {
-                    min: 20,
-                    max: 50
-                }
-            });
-        </script>
+        </div>
 
     </section>
 
@@ -161,7 +151,5 @@
             </div>
         </div>
     </section>
-
-    @include('guest.shop.cart-modal')
  
 </x-guests-layout>    
