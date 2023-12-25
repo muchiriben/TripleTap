@@ -26,7 +26,7 @@
                 </form>
               </div>
             </div>
-            <div class="scrolldown" style="--color: #10316B">
+            <div class="scrolldown" style="--color: #F2F7FF">
                 <div class="chevrons">
                     <div class="chevrondown"></div>
                     <div class="chevrondown"></div>
