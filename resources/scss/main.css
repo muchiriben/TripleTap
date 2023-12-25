@@ -690,6 +690,12 @@ footer h3 {
   flex-direction: column;
   gap: 1.5em;
 }
+#hero #content #main h2 {
+  color: #c84257;
+  font-family: "Mountains of Christmas";
+  text-align: center;
+  font-size: 3em;
+}
 #hero #content #main h1 {
   display: flex;
   align-items: center;

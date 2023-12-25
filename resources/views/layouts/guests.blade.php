@@ -14,7 +14,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/scss/main.css', 'resources/scss/nav.css', 'resources/scss/gallery.css', 'resources/scss/lightbox.css', 'resources/scss/wishes.css', 'resources/js/app.js', 'resources/js/lightbox-plus-jquery.js', 'resources/js/particles-wishes.js'])
+        @vite(['resources/css/app.css', 'resources/scss/main.css', 'resources/scss/nav.css', 'resources/scss/gallery.css', 'resources/scss/lightbox.css', 'resources/js/app.js', 'resources/js/lightbox-plus-jquery.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <header>
