@@ -2,7 +2,7 @@
     <section id="hero">
         <div id="content">
             <div id="main">
-                <h2>Merry Chrismas and a Happy new Year!!</h2>
+                <h2>Wishing you a Merry Chrismas and a Happy New Year!!</h2>
                 <h1>Triple Tap Limited</h1>
                 <ul>
                     <li>Agency of precision</li>
