@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('guest.index');
-})->name('home');
+})->name('home')->with('wishes', 'Merry Chrismas and a Happy New Year!!');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
