@@ -1,5 +1,4 @@
 <x-guests-layout>
-    @include('includes.wishes')
     <section id="hero">
         <div id="content">
             <div id="main">
@@ -33,7 +32,18 @@
                     <div class="chevrondown"></div>
                 </div>
             </div>
-        </div>   
+        </div> 
+        
+        <script type="text/javascript">
+            $.snowfall.start({
+                content: '<i class="fa fa-snowflake-o"></i>',
+				size: {
+                    min: 20,
+                    max: 50
+                }
+            });
+        </script>
+
     </section>
 
     <section id="partners">
