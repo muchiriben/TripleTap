@@ -1095,6 +1095,9 @@ footer h3 {
 
 /* responsive settings section */
 @media screen and (max-width: 800px) {
+  #hero #content #main h2 {
+    font-size: 3em;
+  }
   #hero #content #main h1 {
     font-size: 4.5em;
   }
