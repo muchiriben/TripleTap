@@ -150,5 +150,7 @@
             </div>
         </div>
     </section>
+
+    @include('guest.shop.cart-modal')
  
 </x-guests-layout>    
