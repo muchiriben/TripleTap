@@ -7,7 +7,7 @@
 
         <link rel="icon" href="{{asset('images/logo.png')}}" type="image/x-icon"/>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Triple Tap Limited</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
