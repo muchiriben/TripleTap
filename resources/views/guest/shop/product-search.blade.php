@@ -53,7 +53,7 @@
           <a href="" class="h-60 w-80 sm:w-72">
             <div class="flex flex-col h-full w-full">
                  <div class="flex justify-center items-center h-3/5 shadow-xl rounded-lg bg-nuetral-color">
-                     <img class="h-full w-full rounded-lg object-cover" src="{{ $product->image }}" alt="">
+                     <img class="h-full w-full rounded-lg object-contain" src="{{ $product->image }}" alt="">
                  </div>
                  <div class="flex flex-row justify-between m-2 h-1/5 px-2 w-full">
                    <div class="flex flex-col">
