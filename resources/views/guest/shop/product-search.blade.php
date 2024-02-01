@@ -50,37 +50,39 @@
 
       <div class="grid grid-cols-1 gap-6 my-4 mx-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           @foreach($products as $product)
-          <a href="" class="h-60 w-80 sm:w-72">
+          <a href="" class="h-72 w-72 mb-2 sm:w-72">
             <div class="flex flex-col h-full w-full">
                  <div class="flex justify-center items-center h-3/5 shadow-xl rounded-lg bg-nuetral-color">
                      <img class="h-full w-full rounded-lg object-contain" src="{{ $product->image }}" alt="">
                  </div>
-                 <div class="flex flex-row justify-between m-2 h-1/5 px-2 w-full">
-                   <div class="flex flex-col">
-                      <h2 class="font-bold text-sm lg:text-base">KSh {{ $product->selling_price }}</h2>
-                      <h2 class="font-bold text-sm lg:text-base">{{ $product->name }}</h2>
+                 <div class="flex flex-col justify-between h-1/5 px-2 w-full">
+                   <div class="flex flex-col w-full">
+                      <h2 class="font-bold text-lg lg:text-base">KSh {{ $product->selling_price }}</h2>
+                      <h2 class="font-bold text-lg lg:text-base">{{ $product->name }}</h2>
                       @if ($product->quantity == 0)
-                      <h2 class="font-bold text-md lg:text-base text-red-500">(Out of Stock)
-                      </h2>
+                        <h2 class="font-bold text-md lg:text-base text-red-500">(Out of Stock)
+                        </h2>
                       @endif
                    </div>
-                   <div class="flex justify-center items-center p-2">
+                   <div class="flex items-center w-full">
                       <form action="{{ route('cart.store') }}" method="POST">
                           @csrf
                           <x-text-input type="hidden" name="id" value="{{ $product->id }}"/>
                           <x-text-input type="hidden" name="name" value="{{ $product->name }}"/>
-                          <x-text-input type="hidden" name="quantity" value="{{ $product->quantity }}"/>
+                          <x-text-input type="hidden" name="quantity" value="{{ $product->quantity }}"/> 
                           <x-text-input type="hidden" name="price" value="{{ $product->selling_price }}"/>
-                          <x-primary-button class="bg-secondary-color shadow-md rounded-md">
+                          <x-primary-button class="bg-secondary-color shadow-md rounded-md flex flex-row gap-2 w-full">
                               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 lg:h-8 lg:w-8" fill="none" viewBox="0 0 24 24" stroke="#F2F7FF" stroke-width="2">
-                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /> 
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                                  <span class="font-medium text-xs text-center text-color-light">Add To Cart</span> 
                         </x-primary-button>
+                        
                         </form> 
                       
                    </div>
               </div>
             </div>
-          </a>  
+          </a> 
             @endforeach
       </div>
   </section>

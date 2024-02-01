@@ -48,7 +48,7 @@
     <section class="products min-h-screen">
       @include('includes.messages')
 
-        <div class="grid content-center grid-cols-1 gap-8 my-4 mx-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div class="grid content-center grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             @foreach($products as $product)
             <a href="" class="h-72 w-72 mb-2 sm:w-72">
               <div class="flex flex-col h-full w-full">
