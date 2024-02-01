@@ -64,7 +64,7 @@
                           </h2>
                         @endif
                      </div>
-                     <div class="flex justify-center items-center p-2">
+                     <div class="flex justify-center items-center p-2 w-full">
                         <form action="{{ route('cart.store') }}" method="POST">
                             @csrf
                             <x-text-input type="hidden" name="id" value="{{ $product->id }}"/>
