@@ -55,7 +55,7 @@
                    <div class="flex justify-center items-center h-3/5 shadow-xl rounded-lg bg-nuetral-color">
                        <img class="h-full w-full rounded-lg object-contain" src="{{ $product->image }}" alt="">
                    </div>
-                   <div class="flex flex-row justify-between m-2 h-1/5 px-2 w-full">
+                   <div class="flex flex-col justify-between m-2 h-1/5 px-2 w-full">
                      <div class="flex flex-col">
                         <h2 class="font-bold text-lg lg:text-base">KSh {{ $product->selling_price }}</h2>
                         <h2 class="font-bold text-lg lg:text-base">{{ $product->name }}</h2>
@@ -71,7 +71,7 @@
                             <x-text-input type="hidden" name="name" value="{{ $product->name }}"/>
                             <x-text-input type="hidden" name="quantity" value="{{ $product->quantity }}"/> 
                             <x-text-input type="hidden" name="price" value="{{ $product->selling_price }}"/>
-                            <x-primary-button class="bg-secondary-color shadow-md rounded-md flex flex-col">
+                            <x-primary-button class="bg-secondary-color shadow-md rounded-md flex flex-row">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 lg:h-8 lg:w-8" fill="none" viewBox="0 0 24 24" stroke="#F2F7FF" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
                                     <span class="font-medium text-xs text-center text-color-light">Add To Cart</span> 
