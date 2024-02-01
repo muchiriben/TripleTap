@@ -50,13 +50,13 @@
 
         <div class="grid grid-cols-1 gap-8 my-4 mx-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             @foreach($products as $product)
-            <a href="" class="h-60 w-80 sm:w-72">
+            <a href="" class="h-72 w-72 mb-2 sm:w-72">
               <div class="flex flex-col h-full w-full">
                    <div class="flex justify-center items-center h-3/5 shadow-xl rounded-lg bg-nuetral-color">
                        <img class="h-full w-full rounded-lg object-contain" src="{{ $product->image }}" alt="">
                    </div>
-                   <div class="flex flex-col justify-between m-2 h-1/5 px-2 w-full">
-                     <div class="flex flex-col">
+                   <div class="flex flex-col justify-between m-1 h-1/5 px-2 w-full">
+                     <div class="flex flex-col w-full">
                         <h2 class="font-bold text-lg lg:text-base">KSh {{ $product->selling_price }}</h2>
                         <h2 class="font-bold text-lg lg:text-base">{{ $product->name }}</h2>
                         @if ($product->quantity == 0)
