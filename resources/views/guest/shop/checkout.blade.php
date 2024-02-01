@@ -25,7 +25,7 @@
               @csrf
      
               <div id="billing" class="flex flex-col justify-center mr-8">
-                  <h1 class="font-semibold capitalize text-base sm:text-lg mb-2 text-accent-color">Billing Details.</h1>
+                  <h1 class="font-semibold capitalize text-base sm:text-lg mb-2 text-accent-color">Payment Details.</h1>
                   <span class="text-primary-color font-semibold">Payment through Mpesa: Pay Bill</span>
                   <span class="text-primary-color font-semibold">Bussiness Number: 400200 </span>
                   <span class="text-primary-color font-semibold">Account Number: 01143756330700 </span>
