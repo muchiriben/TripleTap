@@ -47,7 +47,7 @@
     <!-- products section -->
     <section class="categories min-h-screen">
 
-        <div class="grid grid-cols-1 gap-8 my-4 mx-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             @foreach($categories as $category)
             <a href="/shop/{{ $category->id }}" class="h-60 w-80 sm:w-72">
               <div class="flex flex-col h-full w-full">
