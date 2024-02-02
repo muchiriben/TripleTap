@@ -10,6 +10,9 @@
             <x-link-button class="w-fit shadow-xl bg-secondary-color text-light-color hover:text-accent-color" :href="route('admin.products.create')">
                 {{ __('Add Accessory') }}
               </x-link-button>
+              <x-link-button class="w-fit shadow-xl bg-secondary-color text-light-color hover:text-accent-color" :href="route('admin.export.products')">
+                {{ __('Export Accessories') }}
+              </x-link-button>
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg overflow-x-auto">
                 
                 <table class="min-w-full divide-y divide-gray-200 table-fixed">

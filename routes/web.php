@@ -17,6 +17,7 @@ use App\Http\Controllers\FindSubCategoriesController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\StorageController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ExportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +51,7 @@ Route::group([
     'middleware' => ['auth', 'admin']
 ], function () {
     Route::resource('orders', OrderController::class);
+    Route::get('/export-products', [ExportController::class, 'exportProducts'])->name('export.products');
 
     //courses&events
     Route::resource('courses', CourseController::class);
