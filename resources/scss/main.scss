@@ -65,11 +65,9 @@
             gap: 2em;
 
             #shop-btn {
-                width: fit-content;
                 a {
                     text-decoration: none;
                     color: #fff;
-                    width: 20rem;
                     border: red 2px solid;
                     button {
                       cursor: pointer;
@@ -82,6 +80,7 @@
                       display: flex;
                       align-items: center;
                       font-size: 15px;
+                      width: 20rem;
                     }
                     
                     button:hover {

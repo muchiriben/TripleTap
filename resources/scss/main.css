@@ -726,14 +726,9 @@ footer h3 {
   width: 100%;
   gap: 2em;
 }
-#hero #content #cta #shop-btn {
-  width: -moz-fit-content;
-  width: fit-content;
-}
 #hero #content #cta #shop-btn a {
   text-decoration: none;
   color: #fff;
-  width: 20rem;
   border: red 2px solid;
 }
 #hero #content #cta #shop-btn a button {
@@ -747,6 +742,7 @@ footer h3 {
   display: flex;
   align-items: center;
   font-size: 15px;
+  width: 20rem;
 }
 #hero #content #cta #shop-btn a button:hover {
   background: #0B409C;
