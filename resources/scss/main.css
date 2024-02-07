@@ -725,8 +725,35 @@ footer h3 {
   flex-direction: row;
   gap: 2em;
 }
-#hero #content #cta a {
+#hero #content #cta #shop-btn a {
   text-decoration: none;
+  color: #fff;
+}
+#hero #content #cta #shop-btn a button {
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.2s;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: #10316B;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+#hero #content #cta #shop-btn a button:hover {
+  background: #0B409C;
+}
+#hero #content #cta #shop-btn a button > svg {
+  width: 34px;
+  margin-left: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+#hero #content #cta #shop-btn a button:hover svg {
+  transform: translateX(5px);
+}
+#hero #content #cta #shop-btn a button:active {
+  transform: scale(0.95);
 }
 #hero #illustration {
   width: 40%;
