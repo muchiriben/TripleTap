@@ -728,6 +728,7 @@ footer h3 {
 #hero #content #cta #shop-btn a {
   text-decoration: none;
   color: #fff;
+  width: 18rem;
 }
 #hero #content #cta #shop-btn a button {
   cursor: pointer;
