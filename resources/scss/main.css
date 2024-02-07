@@ -723,7 +723,12 @@ footer h3 {
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  width: 100%;
   gap: 2em;
+}
+#hero #content #cta #shop-btn {
+  width: -moz-fit-content;
+  width: fit-content;
 }
 #hero #content #cta #shop-btn a {
   text-decoration: none;
