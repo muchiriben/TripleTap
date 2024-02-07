@@ -8,9 +8,9 @@
                     <li>Agency of precision</li>
                 </ul>
             </div>
-            <div id="cta" class="border-2 border-white">
+            <div id="cta">
                 <div id="shop-btn">
-                    <a href="/shop"><button>
+                    <a href="/shop" class="w-80"><button>
                         <span>Shop now</span>
                         <svg width="34" height="34" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="37" cy="37" r="35.5" stroke="#FFCE63" stroke-width="4"></circle>
