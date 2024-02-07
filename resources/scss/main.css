@@ -729,6 +729,7 @@ footer h3 {
   text-decoration: none;
   color: #fff;
   width: 20rem;
+  border: red 2px solid;
 }
 #hero #content #cta #shop-btn a button {
   cursor: pointer;
