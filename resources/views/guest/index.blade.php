@@ -9,7 +9,7 @@
                 </ul>
             </div>
             <div id="cta">
-                <div id=".shop-btn">
+                <div id="shop-btn">
                     <a href="/shop"><button>
                         <span>Shop now</span>
                         <svg width="34" height="34" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
