@@ -8,7 +8,7 @@
                     <li>Agency of precision</li>
                 </ul>
             </div>
-            <div id="cta">
+            <div id="cta" class="border-2 border-white">
                 <div id="shop-btn">
                     <a href="/shop"><button>
                         <span>Shop now</span>
