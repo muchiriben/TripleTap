@@ -68,7 +68,6 @@
                 a {
                     text-decoration: none;
                     color: #fff;
-                    border: red 2px solid;
                     button {
                       cursor: pointer;
                       font-weight: 700;
@@ -79,6 +78,7 @@
                       border: 1px solid transparent;
                       display: flex;
                       align-items: center;
+                      justify-content: center;
                       font-size: 15px;
                       width: 16rem;
                     }
