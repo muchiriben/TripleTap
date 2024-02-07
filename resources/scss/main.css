@@ -1134,6 +1134,9 @@ footer h3 {
   #hero #content #main ul li {
     font-size: 1.5em;
   }
+  #hero #content #cta {
+    flex-direction: column;
+  }
   #partners #main {
     display: flex;
     align-items: center;
