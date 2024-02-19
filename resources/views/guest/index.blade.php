@@ -5,7 +5,7 @@
                 <!--<h2>Wishing you a Merry Chrismas and a Happy New Year!!</h2>-->
                 <h1>Triple Tap Limited</h1>
                 <ul>
-                    <li>Agency of precision</li>
+                    <li>Agents of precision</li>
                 </ul>
             </div>
             <div id="cta">
